@@ -14,7 +14,7 @@ const productTemplate = document.querySelector("#productTemplate");
 const fetchAverageRating = async (productId) => {
   // console.log("my id " + productId);
   try {
-      const response = await fetch(`http://localhost:3000/getProductRating/${productId}`);
+      const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/getProductRating/${productId}`);
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
@@ -63,7 +63,7 @@ const addHoverEffect = (imageContainer) => {
 };
 const fetchProducts = async () => {
   try {
-    const response = await fetch('http://localhost:3000/productsAll');
+    const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/productsAll');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -199,7 +199,7 @@ export const showProductContainer = async () => {
 
 async function fetchProductsColor(color, cateName) {
   try {
-      const response = await fetch('http://localhost:3000/productsByColor', {
+      const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/productsByColor', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -346,7 +346,7 @@ export const showProductContainerColor = async (color, cateName) => {
 
 const fetchProductsByCategory = async (cateName) => {
   try {
-      const response = await fetch(`http://localhost:3000/productsCate?category=${cateName}`);
+      const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/productsCate?category=${cateName}`);
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
@@ -603,7 +603,7 @@ export const showProductContainerCate = async (cateName) => {
 
 const fetchProductsByCategoryAndPrice = async (category, price) => {
   try {
-    const response = await fetch(`http://localhost:3000/productsByCategoryAndPrice?category=${category}&price=${price}`);
+    const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/productsByCategoryAndPrice?category=${category}&price=${price}`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }

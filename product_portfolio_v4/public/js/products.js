@@ -84,7 +84,7 @@ const queryParamsLength = Array.from(queryParams.keys()).length;
             
             async function fetchColors(cateName) {
                 try {
-                    const response = await fetch('http://localhost:3000/colors', {
+                    const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/colors', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -393,7 +393,7 @@ const queryParamsLength = Array.from(queryParams.keys()).length;
             
             async function fetchColors(cateName) {
                 try {
-                    const response = await fetch('http://localhost:3000/colors', {
+                    const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/colors', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'

@@ -9,7 +9,7 @@ export const isAlreadyReviewed = async (orderId, productId) => {
 
     try {
         // Check if the record exists in product_review table
-        const response = await fetch('http://localhost:3000/checkProductReview', {
+        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/checkProductReview', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

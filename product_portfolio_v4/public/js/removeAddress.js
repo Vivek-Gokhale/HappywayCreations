@@ -1,6 +1,6 @@
 export const removeAddress = async (aid) => {
     try {
-        const response = await fetch('http://localhost:3000/remove-address', {
+        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/remove-address', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -12,7 +12,7 @@ export async function subscribe(event) {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/subscribe', {
+        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/subscribe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
