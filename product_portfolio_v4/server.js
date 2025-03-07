@@ -53,10 +53,10 @@ app.use(session({
 
 // Database Connection
 const db = mysql.createConnection({
-    host: config.dbHost,
-    user: config.dbUser,
-    password: config.dbPassword,
-    database: config.dbName
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'product_portfolio_db'
 });
 
 const basePath = config.apiEndPointUrl+'/product-uploads/';
