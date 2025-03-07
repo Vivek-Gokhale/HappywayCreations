@@ -59,7 +59,7 @@ const db = mysql.createConnection({
     database: 'product_portfolio_db'
 });
 
-const basePath = config.apiEndPointUrl+'/product-uploads/';
+const basePath = 'https://happywaycreations.147.93.106.209.nip.io:3000/product-uploads/';
 
 db.connect(err => {
     if (err) {
