@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
           
     
             try {
-                const response = await fetch("http://localhost:3000/add-address", {
+                const response = await fetch(config.apiEndPointUrl/add-address", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

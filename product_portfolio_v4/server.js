@@ -12,9 +12,8 @@ import otpGenerator from 'otp-generator';
 import nodemailer from 'nodemailer';
 import indexRoutes from './routes/index.js';
 import {fileURLToPath} from 'url';
-
+import config from './utils/config.js'
 const app = express();
-const port = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // Replace these with your Razorpay key and secret
@@ -22,6 +21,7 @@ const razorpay = new Razorpay({
     key_id: 'rzp_test_s2VG2G2HwcOQd6',
     key_secret: '13wTYUM144Kv98GujKu6kkB6'
 });
+
 
 
 
@@ -53,13 +53,13 @@ app.use(session({
 
 // Database Connection
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'product_portfolio_db'
+    host: config.dbHost,
+    user: config.dbUser,
+    password: config.dbPassword,
+    database: config.dbName
 });
 
-const basePath = 'http://localhost:3000/product-uploads/';
+const basePath = config.apiEndPointUrl+'/product-uploads/';
 
 db.connect(err => {
     if (err) {
@@ -2081,8 +2081,8 @@ app.get('/',  (req, res) => {
     res.send('Welcome to the main page'); // Replace with your actual main page logic
 });
 
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+app.listen(config.port, () => {
+    console.log(`Server running on http://localhost:${config.port}`);
 });
 
 // Payment validation endpoint

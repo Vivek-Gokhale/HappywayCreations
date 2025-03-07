@@ -4,7 +4,7 @@ import { isLoggedIn } from "./loginStatus";
 document.addEventListener("DOMContentLoaded", async function () {
   async function fetchUserOrders(email) {
     try {
-      const response = await fetch("http://localhost:3000/getUserOrders", {
+      const response = await fetch(config.apiEndPointUrl/getUserOrders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

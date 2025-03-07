@@ -4,7 +4,6 @@ import { isLoggedIn } from './loginStatus.js';
 import { updateCartValue } from './updateCartValue.js';
 import { updateWishValue } from './updateWishListValue.js';
 
-
 let headerButtons = document.querySelector('.header-buttons');
 
 export const logInLogoutSet = () => {
