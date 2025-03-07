@@ -1,0 +1,338 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+		  rel="stylesheet"
+		  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+		  integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+		  crossorigin="anonymous"
+		  referrerpolicy="no-referrer"
+		/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+		  href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Jost:wght@300;400;500;700&family=Poppins:wght@200;300;400;600&family=Quicksand:wght@300;400;500;600&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap"
+		  rel="stylesheet"
+		/>
+		
+	
+		
+		
+		<link rel="stylesheet" href="style.css">
+		<title>Product Portfolio</title>
+        <style>
+            .order-container1,
+           .order-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-width: 1150px;
+            margin: 0;
+        }
+        .order-details {
+            width: calc(50% - 10px); /* 2 items per row with 20px gap */
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            /* background-color: grey; */
+        }
+        .order-products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .order-item {
+            display: flex;
+            width: calc(50% - 10px); /* 2 items per row with 20px gap */
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .order-item img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+        .order-summary {
+            text-align: right;
+        }
+		.review {
+    font-size: 16px;
+    padding: 5px 15px;
+    border: none;
+    outline: none;
+    background: none;
+    border: 1px solid grey;
+    border-radius: 10px;
+    transition: box-shadow 0.5s ease, background-color 0.3s ease;
+}
+
+.review:hover {
+    background-color: #ebebeb;
+    outline: none;
+}
+
+.review:active {
+    border: 1px solid lightblue;
+    outline: none;
+    box-shadow: 0 0 10px 2px lightblue;
+}
+
+.review:focus {
+    outline: none;
+}
+	.already-reviewed{
+		font-size: 14px;
+		color: #13491B;
+		
+	}
+
+       
+        </style>
+	  </head>
+  
+  <body>
+	<header class="section-navbar">
+		<section class="top_txt">
+		  <div class="head container">
+			<div class="head_txt">
+			  <!-- <p>Free shipping, 30-day return or refund guarantee.</p> -->
+			</div>
+			<div class="sing_in_up">
+			  
+			</div>
+		  </div>
+		</section>
+		<div class="container">
+		  <div class="navbar-brand">
+			<a href="index.html">
+			  <img
+			  src="public/images/logo.png"
+				alt="sitename eCommerce logo"
+				class="logo"
+				width="80%"
+				height="auto"
+			  />
+			</a>
+		  </div>
+  
+		  <nav class="navbar">
+			<ul>
+			  <li class="nav-item">
+				<a href="/" class="nav-link">Home</a>
+			  </li>
+			  <li class="nav-item">
+				<a href="products.html" class="nav-link">products</a>
+			  </li>
+			  <li class="nav-item">
+				  <a href="about.html" class="nav-link">about</a>
+				</li>
+			 
+			  <li class="nav-item">
+				<a href="contact.html" class="nav-link">contact</a>
+			  </li>
+			 
+			 
+			</ul>
+		  </nav>
+		</div>
+	  </header>
+
+	 
+	  
+	
+      
+	  <div class="d-flex">
+		<div class="d-flex flex-column flex-shrink-0 p-3 ">
+		 
+		  
+			<ul class="nav nav-pills flex-column mb-auto">
+			  <li class="nav-item">
+				<a href="orders.html" class="nav-link orderLink" aria-current="page" style="color: #13491B;" >
+				  <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+				  Your Orders
+				</a>
+			  </li>
+			  <li>
+				<a href="address.html" class="nav-link addressLink" style="color: #13491B;">
+				  <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+				  Your Addresses
+				</a>
+			  </li>
+			  <li>
+				<a href="profile.html" class="nav-link profileLink" style="color: #13491B;">
+				  <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+				  Your Profile
+				</a>
+			  </li>
+			  
+			  
+			</ul>
+		  
+		   
+		  </div>
+		<div class="order-container" style="margin-top: 10px;">
+    
+		</div>
+	  </div>
+
+<template id="order-template">
+    <div class="order-details">
+        <div class="order-header">
+            <div>
+                <p><strong>ORDER PLACED:</strong> <span class="order-date"></span></p>
+				<div style="display: flex; align-items: baseline; gap: 1rem;">
+					<p><span class="order-status category"></span></p>
+					
+				</div>
+                
+            </div>
+            <div>
+                <p><strong>TOTAL:</strong> ₹<span class="order-total"></span></span></p>
+                
+                <p><strong>#ORDER ID:</strong> <span class="order-id"></span></p>
+            </div>
+        </div>
+        <div class="order-products">
+            <!-- Order items will be dynamically inserted here -->
+        </div>
+    </div>
+</template>
+
+<template id="order-item-template">
+	
+    <div class="order-item" id="cardValue">
+		<a href="singleProductPage.html">
+			<img src="" alt="Product Image" class="product-image"></a>
+			<div id="reviewHolder">
+				<p><span class="product-name"></span></p>
+				<p>Quantity : <span class="product-quantity"></span></p>
+				
+			</div>
+		
+       
+    </div>
+</template>
+	
+<footer class="section-footer">
+	<div class="footer-container container">
+	  <div class="content_1">
+		<img src="public/images/logo.png" alt="logo" />
+		<p>
+		  Welcome to sitename EcomStore, your ultimate shopping destination.
+		</p>
+		<div class="feedback-container">
+		  <p>DID YOU FIND INFORMATION ON THIS SITE USEFUL?</p>
+		  <button style="outline: none;" class="feedback-button like" id="likeButton">
+			<i class="fa-solid fa-thumbs-up fa-xl"></i>
+		  </button>
+		  <button style="outline: none;" class="feedback-button dislike" id="dislikeButton">
+			<i class="fa-solid fa-thumbs-down fa-xl"></i>
+		  </button>
+	  </div>
+	  </div>
+	  
+	  <div class="content_2">
+		<h4>SHOPPING</h4>
+		<a href="products.html?type=Food">Foods</a>
+		<a href="products.html?type=Electronics">Electronics</a>
+		<a href="products.html?type=Jewellery">Jewellery</a>
+	  </div>
+	  <div class="content_3">
+		<h4>INFORMATION</h4>
+		<a href="./about.html">About Us</a>
+		<a href="./contact.html">Contact Us</a>
+		<a href="./orders.html">Track Your Orders</a>
+	  </div>
+	  <div class="content_4">
+		<div class="touch-container">
+			<h4>GET IN TOUCH</h4>
+			<div class="touch-info">
+				<p>Prita Designs Pvt Ltd,</p>
+				<p>Vaishnavi Properties, #30/1, Silicon Terraces,</p>
+				<p>2nd and 3rd Floor, Adugodi, Hosur Main Road, Koramangala, Bengaluru – 560095</p>
+				<p>For queries and feedback, write to us at:</p>
+				<p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@sitename.com" target="_blank">Email : support@sitename.com</a></p>
+				<p>Phone: 08069894292</p>
+			</div>
+			<h4 style="color: #fff;" >Subscribe to Our Newsletter</h4>
+			<p>Be the first to know about new arrivals, sales & promos!</p>
+			<div class="f-mail" style="display: flex;">
+				<input type="email" class="emailInput" placeholder="Your Email" required/>
+				<button style="background-color:darkred; border: 10px solid darkred;  outline: none; height: 52px; width: 15rem; font-size: 16px; color: white;" class="subscribe">Subscribe</button>
+			</div>
+			<div>
+				<br>
+				<button id="facebook" class="socialMedia" style="outline: none;"><i style="color: #fff;" class="fa-brands fa-facebook"></i></button>&emsp;
+				<button id="instagram" class="socialMedia" style="outline: none;"><i style="color: #fff;" class="fa-brands fa-instagram"></i></button>
+			</div>
+			<hr />
+			
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content">
+			  <div class="modal-header">
+				  <h3 class="modal-title" id="feedbackModalLabel">Feedback</h3>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+				  </button>
+			  </div>
+			  <div class="modal-body">
+				  <form id="feedbackForm">
+					  <div class="form-group">
+						  <label for="userEmail" style="color: black;"></label>
+						  <input type="email" class="form-control" id="userEmail" placeholder="Enter your email" required style="font-size: 14px;">
+					  </div>
+					  <div class="form-group">
+						  <label for="userMessage" style="color: black;">WHAT CAN WE DO BETTER?</label>
+						  <textarea class="form-control" id="userMessage" rows="3" placeholder="Enter your feedback here" required style="font-size: 14px;"></textarea>
+					  </div>
+					  <button type="submit" class="add-to-cart-button">Submit</button>
+				  </form>
+			  </div>
+		  </div>
+	  </div>
+  </div>
+		
+	</div>
+	<div class="f-design">
+	  <div class="f-design-txt">
+		<p>Copyright © 2024 Sitename, All Rights Reserved</p>
+	  </div>
+	  
+	</div>
+  </footer>
+  <script type="module" src="main.js"></script>
+    <!-- <script type="module" src="fetchAddresses.js"></script> -->
+    <script type="module" src="subscribeFire.js"></script>
+    <!-- <script type="module" src="loginPrompt.js"></script> -->
+    <script type="module" src="buttonSetup.js"></script>
+    <script type="module" src="fetchOrder.js"></script>
+	<script type="module" src="stickHeader.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			const addressLink = document.querySelector('.orderLink');
+			if (addressLink) {
+				addressLink.style.backgroundColor = '#13491B';
+				addressLink.style.color = 'white';
+			}
+		});
+	</script>
+	 <script type="module" src="siteFeedback.js"></script>
+	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

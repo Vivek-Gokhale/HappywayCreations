@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - Bangle Collection</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="./js/auth.js" defer></script>
+    <style>
+        .gallery {
+            text-align: center;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            background-color: #fafafa;
+        }
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin: 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        .content-section {
+            padding: 60px 0;
+            text-align: left;
+            background-color: #fff;
+        }
+        .content-section h1 {
+            color: #2b2b2b;
+            margin-bottom: 20px;
+            font-size: 36px;
+            font-weight: 600;
+            text-align: justify;
+        }
+        .content-section h2 {
+            color: #444;
+            margin-bottom: 15px;
+            font-size: 28px;
+            font-weight: 500;
+            text-align: justify;
+        }
+        .content-description {
+            max-width: 800px;
+            margin: 0 0 40px;
+            padding: 0 20px;
+            color: #666;
+            line-height: 1.8;
+            font-size: 17px;
+            text-align: justify;
+        }
+        @media screen and (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 20px;
+            }
+            .gallery img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <div class="head_txt">
+          </div>
+          <div class="sing_in_up">
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img src="./images/logo.png"
+              alt="sitename eCommerce logo"
+              class="logo"
+              width="10%"
+              height="auto"
+            />
+          </a>
+        </div>
+        <nav class="navbar">
+
+
+          <ul>
+            <li class="nav-item">
+              <a  class="nav-link" id="indexLink" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="productsLink" href="#">products</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="eventsLink" href="#">Events</a>
+            </li>
+            <li class="nav-item">
+                <a  class="nav-link" id="aboutLink" href="about.html">about</a>
+              </li>
+           
+            <li class="nav-item">
+              <a  class="nav-link" id="contactLink" href="#">contact</a>
+            </li>
+
+            
+           
+           
+          </ul>
+        </nav>
+        <button class="hamburger-menu" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="header-buttons">
+          <!-- Buttons will be dynamically inserted by auth.js -->
+        </div>
+      </div>
+    </header>
+
+    <div class="content-section">
+        <h1>Our Events</h1>
+        <h2>Bangle Collection</h2>
+        <div class="content-description">
+            Explore our stunning collection of handcrafted bangles, where traditional artistry meets contemporary design. Each piece in our collection is meticulously crafted to showcase intricate details and elegant finishes. From classic gold-plated designs to modern statement pieces, our bangle collection offers timeless accessories that add the perfect touch of elegance to any outfit.
+        </div>
+        <div class="gallery">
+            <img src="events/Bangle/Bangle1.webp" alt="Bangle 1">
+            <img src="events/Bangle/Bangle2.webp" alt="Bangle 2">
+            <img src="events/Bangle/Bangle3.webp" alt="Bangle 3">
+            <img src="events/Bangle/Bangle4.jpeg" alt="Bangle 4">
+            <img src="events/Bangle/Bangle5.jpeg" alt="Bangle 5">
+            <img src="events/Bangle/Bangle6.jpeg" alt="Bangle 6">
+            <img src="events/Bangle/Bangle7.jpeg" alt="Bangle 7">
+            <img src="events/Bangle/Bangle8.jpeg" alt="Bangle 8">
+            <img src="events/Bangle/Bangle9.jpeg" alt="Bangle 9">
+            <img src="events/Bangle/Bangle10.jpeg" alt="Bangle 10">
+            <img src="events/Bangle/Bangle11.jpeg" alt="Bangle 11">
+            <img src="events/Bangle/Bangle12.jpeg" alt="Bangle 12">
+        </div>
+    </div>
+
+    <footer class="section-footer">
+        <div class="footer-container container">
+          <div class="content_1">
+            <img src="./images/logo.png" alt="logo" />
+            <p>
+              Welcome to sitename EcomStore, your ultimate shopping destination.
+            </p>
+            <div class="feedback-container">
+              <p>DID YOU FIND INFORMATION ON THIS SITE USEFUL?</p>
+              <button style="outline: none;" class="feedback-button like" id="likeButton">
+                <i class="fa-solid fa-thumbs-up fa-xl"></i>
+              </button>
+              <button style="outline: none;" class="feedback-button dislike" id="dislikeButton">
+                <i class="fa-solid fa-thumbs-down fa-xl"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="content_2">
+            <h4>SHOPPING</h4>
+            <a href="products.html?type=Food">Foods</a>
+            <a href="products.html?type=Electronics">Electronics</a>
+            <a href="products.html?type=Jewellery">Jewellery</a>
+          </div>
+          <div class="content_3">
+            <h4>INFORMATION</h4>
+            <a href="./about.html">About Us</a>
+            <a href="./contact.html">Contact Us</a>
+            <a href="./orders.html">Track Your Orders</a>
+          </div>
+          <div class="content_4">
+            <div class="touch-container">
+                <h4>GET IN TOUCH</h4>
+                <div class="touch-info">
+                    <p>Prita Designs Pvt Ltd,</p>
+                    <p>Vaishnavi Properties, #30/1, Silicon Terraces,</p>
+                    <p>2nd and 3rd Floor, Adugodi, Hosur Main Road, Koramangala, Bengaluru – 560095</p>
+                    <p>For queries and feedback, write to us at:</p>
+                    <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@sitename.com" target="_blank">Email : support@sitename.com</a></p>
+                    <p>Phone: 08069894292</p>
+                </div>
+                <h4 style="color: #fff;">Subscribe to Our Newsletter</h4>
+                <p>Be the first to know about new arrivals, sales & promos!</p>
+                <div class="f-mail" style="display: flex;">
+                    <input type="email" class="emailInput" placeholder="Your Email" required/>
+                    <button style="background-color:darkred; border: 10px solid darkred;  outline: none; height: 52px; width: 15rem; font-size: 16px; color: white;" class="subscribe">Subscribe</button>
+                </div>
+                <div style="display: flex; align-items: center;">
+                  <a href="https://www.facebook.com/login" target="_blank">
+                      <button id="facebook" class="socialMedia" style="outline: none; margin-right: 10px;">
+                          <i style="color: #fff;" class="fa-brands fa-facebook"></i>
+                      </button>
+                  </a>
+                  <a href="https://www.instagram.com/accounts/login/" target="_blank">
+                      <button id="instagram" class="socialMedia" style="outline: none;">
+                          <i style="color: #fff;" class="fa-brands fa-instagram"></i>
+                      </button>
+                  </a>
+                </div>
+                <hr />
+            </div>
+        </div>
+        </div>
+        <div class="f-design">
+          <div class="f-design-txt">
+            <p>Copyright © 2024 Sitename, All Rights Reserved</p>
+          </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="./js/buttonSetup.js"></script>
+    <script type="module" src="./js/loginPrompt.js"></script>
+    <script type="module" src="./js/stickHeader.js"></script>
+    <script type="module" src="./js/siteFeedback.js"></script>
+    <script src="./js/menu.js"></script>
+    
+<script type="module" src="./js/routes.js"></script>
+</body>
+</html>
+</html>

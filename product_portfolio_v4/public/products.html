@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Jost:wght@300;400;500;700&family=Poppins:wght@200;300;400;600&family=Quicksand:wght@300;400;500;600&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/auth.js" defer></script>
+    <title>Product Portfolio</title>
+    <style>
+      .cate {
+        background: none;
+        border: 1px solid whitesmoke;
+        outline-color: whitesmoke;
+      }
+      .cate:hover {
+        color: green;
+      }
+      .cate:focus {
+        outline: none; /* Remove outline on focus */
+      }
+      .pname:link{
+        text-decoration: none;
+      }
+      .form-select {
+            width: 200px; /* Increase width */
+            height: 50px; /* Increase height */
+            font-size: 16px; /* Increase font size */
+           margin: 0;
+           padding: 0;
+           
+           
+        }
+        .slider-container {
+            width: 95%;
+            margin: 50px auto;
+            
+        }
+       
+        .range-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px; /* Increase font size */
+            margin-top: 10px; /* Add some space above the slider */
+        }
+        .range-values div {
+            flex: 1;
+        }
+        .search-form {
+            display: flex;
+            align-items: center;
+            width: 95%;
+            max-width: 500px;
+            /* margin: 50px auto; */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0px 10px;
+            background: none;
+            background-color: #F0F0F0;
+        }
+        .search-form i {
+            color: #555;
+            font-size: 14px;
+           
+        }
+        .search-form input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+        .search-form input::placeholder {
+            color: #aaa;
+        }
+       
+
+    .price-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .price-label span {
+      margin-right: 8px;
+    }
+
+    .price-label input {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      appearance: none;
+      cursor: pointer;
+      position: relative;
+    }
+
+    
+
+    .price-label input:checked::after {
+      content: '✔';
+      color: green;
+      /* background-color: green; */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 16px;
+    }
+    
+.price-input {
+  width: 100%;
+  /* display: flex; */
+  /* margin: 30px 0 35px; */
+}
+.price-input .field {
+  display: flex;
+  width: 100%;
+  height: 45px;
+  align-items: center;
+}
+
+.field input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 12px;
+  margin-left: 12px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #999;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.price-input .separator {
+  width: 130px;
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+}
+.slider {
+  height: 5px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+.slider .progress {
+  height: 100%;
+  left: 0%;
+  right: 0%;
+  position: absolute;
+  border-radius: 5px;
+  background: #13491B;
+}
+.range-input {
+  position: relative;
+}
+.range-input input {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -15px;
+  background: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #13491B;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+input[type="range"]::-moz-range-thumb {
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #13491B;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+::selection {
+  color: #fff;
+  background: #13491B;
+}
+.wrapper {
+  width: 212px;
+  margin-left: -12px;
+  padding: 0;
+}
+
+
+
+
+              
+.rating-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .rating-label span {
+      margin-right: 8px;
+    }
+
+    .rating-label input {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      appearance: none;
+      cursor: pointer;
+      position: relative;
+    }
+
+    
+
+    .rating-label input:checked::after {
+      content: '✔';
+      color: green;
+      background:none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 16px;
+    }
+
+    .color-container {
+      /* padding: 20px; */
+      /* border: 1px solid #ccc;
+      border-radius: 8px; */
+      width: fit-content;
+    }
+
+    .color-container p {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .color-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .productColorGrid{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .product-color-option {
+      width: 25px;
+      height: 25px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    .product-color-option:hover {
+      border-color: #000;
+    }
+
+    .product-color-option input {
+      display: none;
+    }
+
+    .product-color-option input:checked + .color-circle {
+      border: 2px solid #000;
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+
+    .color-option:hover {
+      border-color: #000;
+    }
+
+    .color-option input {
+      display: none;
+    }
+
+    .color-option input:checked + .color-circle {
+      border: 2px solid #000;
+    }
+
+    .color-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+    
+
+    .color-white { background-color: rosybrown }
+    .color-black { background-color: #000; }
+    .color-blue { background-color: #0000ff; }
+    .color-lightblue { background-color: #00ffff; }
+    .color-brown { background-color: #a52a2a; }
+    .color-gray { background-color: #808080; }
+    .color-green { background-color: #008000; }
+    .color-rainbow { background-image: linear-gradient(to bottom right, red, orange, yellow, green, blue, indigo, violet); }
+    .color-yellow { background-color: #ffff00; }
+    .color-orange { background-color: #ffa500; }
+    .color-pink { background-color: #ffc0cb; }
+    .color-purple { background-color: #800080; }
+    .color-red { background-color: #ff0000; }
+    .color-beige { background-color: #f5f5dc; }
+
+
+    
+/*--- /.price-range-slider ---*/
+
+        #rating-filter {
+            margin-top: 20px;
+            padding: 0 15px;
+        }
+
+        .rating-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .rating-label:hover {
+            background-color: #f5f5f5;
+        }
+
+        .rating-label input[type="checkbox"] {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .rating-label span {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+    </style>
+    
+    
+  </head>
+  <body>
+
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <div class="head_txt">
+            <!-- <p>Free shipping, 30-day return or refund guarantee.</p> -->
+          </div>
+          <div class="sing_in_up">
+            
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img
+            src="./images/logo.png"
+              alt="sitename eCommerce logo"
+              class="logo"
+              width="10%"
+              height="auto"
+            />
+          </a>
+        </div>
+        <nav class="navbar">
+
+
+          <ul>
+            <li class="nav-item">
+              <a  class="nav-link" id="indexLink" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="productsLink" href="#">products</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="eventsLink" href="#">Events</a>
+            </li>
+            <li class="nav-item">
+                <a  class="nav-link" id="aboutLink" href="about.html">about</a>
+              </li>
+           
+            <li class="nav-item">
+              <a  class="nav-link" id="contactLink" href="#">contact</a>
+            </li>
+
+            
+           
+           
+          </ul>
+        </nav>
+        <button class="hamburger-menu" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="header-buttons">
+          <!-- Buttons will be dynamically inserted by auth.js -->
+        </div>
+      </div>
+    </header>
+
+   <br>
+    <!-- ========== End policy ========== -->
+
+    <!-- ========== Start Our Products Section ========== -->
+
+   <div style="padding: 0 32px;">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Filter Button for Mobile -->
+        <button class="filter-button" onclick="toggleFilters()">
+          <i class="fas fa-filter"></i>Filters
+        </button>
+        <!-- Filter Overlay -->
+        <div class="filter-overlay" onclick="toggleFilters()"></div>
+        <!-- Filter Container -->
+        <div class="col-md-2" style="background-color: #F0F0F0; border-radius: 10px; height: fit-content;">
+          <br>
+          <form class="search-form">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-item" style="background-color: #f0f0f0;" placeholder="Search Products">
+          </form>
+          <br>
+          
+          <div class="range-values" style="margin-bottom: 10px;">
+            <b>Category</b>
+          </div>
+          <select class="form-select productCate" aria-label="Category" id="productCate">
+            <option value="All" selected class="cate">&emsp;All</option>
+            <option value="Jewellery" class="cate">&emsp;Jewellery</option>
+            <option value="Food" class="cate">&emsp;Food</option>
+            <option value="Electronics" class="cate">&emsp;Electronics</option>
+          </select>
+          <br>
+          
+          <!-- Price Range Section -->
+          <div class="range-values" style="margin-bottom: 10px;">
+            <b>Price Range</b>
+          </div>
+          
+          <!-- Price Range Slider -->
+          <div class="wrapper">
+            <div class="price-input" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <div class="field" style="width: 45%;">
+                <input type="number" class="input-min" value="0" min="0" style="width: 100%; padding: 5px;">
+              </div>
+              <div class="separator" style="width: 10%; text-align: center;">-</div>
+              <div class="field" style="width: 45%;">
+                <input type="number" class="input-max" value="50000" max="50000" style="width: 100%; padding: 5px;">
+              </div>
+            </div>
+            <div class="slider">
+              <div class="progress"></div>
+            </div>
+            <div class="range-input">
+              <input type="range" class="range-min" min="0" max="50000" value="0" step="1">
+              <input type="range" class="range-max" min="0" max="50000" value="50000" step="1">
+            </div>
+          </div>
+          <div style="margin-top: 25px; text-align: center; margin-bottom: 20px;">
+            <button class="go" style="background-color: #13491B; color: white; border: none; padding: 10px 30px; border-radius: 5px; cursor: pointer; font-size: 16px; width: 150px; height: 45px;">Go</button>
+          </div>
+
+          <div id="rating-filter">
+            <br>
+            <p><strong>Rating</strong></p>
+            <label class="rating-label">
+              <span><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-solid fa-star' style='color: #ffa500'></i></span>
+              <input type="checkbox" data-value="5" />
+            </label>
+            <label class="rating-label">
+              <span><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i></span>
+              <input type="checkbox" data-value="4" />
+            </label>
+            <label class="rating-label">
+              <span><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i></span>
+              <input type="checkbox" data-value="3" />
+            </label>
+            <label class="rating-label">
+              <span><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i></span>
+              <input type="checkbox" data-value="2" />
+            </label>
+            <label class="rating-label">
+              <span><i class='fa-solid fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i><i class='fa-regular fa-star' style='color: #ffa500'></i></span>
+              <input type="checkbox" data-value="1" />
+            </label>
+            <label class="rating-label">
+              <span>No Reviews</span>
+              <input type="checkbox" data-value="0" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Products Container -->
+        <div class="col-md-10">
+          <div class="container" id="productContainer" style="padding: 0;"></div>
+        </div>
+      </div>
+    </div>
+   </div>
+  
+   
+  
+  
+    
+    <!-- ========== End Product Template Section ========== -->
+
+    <!-- ========== End Our Products Section ========== -->
+
+    <!-- ========== Start Why Choose Us Section ========== -->
+    
+    <!-- ========== End   Why Choose Us Section ========== -->
+    
+    
+    <template id="productTemplate">
+      <div class="cards" id="cardValue">
+        <article class="information [card]" style="gap: 0rem;">
+          <a href="singleProductPage.html" class="productNameLink" data-id="" style="text-decoration: none; color: #1e1f23;">
+            <span class="category"></span>
+          
+            
+            <br><br>
+            <center>
+              <div class="imageContainer">
+                <!-- ./images will be inserted here dynamically -->
+              </div>
+            </center>
+            <br>
+            <div style="display: flex;">
+              <h2 class="productName"></h2>
+              
+            </div>
+            
+            <div class="productRating" style="font-size: 16px;">
+              
+            </div>
+            <p class="productDescription"></p>
+            <div class="productPriceElement">
+              <p class="productPrice"></p>
+              <p class="productActualPrice"></p>
+              <p class="discountPr"></p>
+              
+              <!-- <p class="tax" style="visibility: hidden;">112</p> -->
+              <input type="hidden" class="tax" value="hiddenValue">
+            </div>
+          </a>
+            <div class="productStockElement">
+              <p class="productProperty">Total Stocks Available:</p>
+              <p class="productStock"></p>
+              <button  class="wish-list-button" style="outline: none; margin-top: -9px;">
+                <i class="fa-regular fa-heart fa-2xl"></i>
+              </button>
+            </div>
+            <div class="productQuantityElement">
+              <p class="productProperty">Quantity</p>
+              
+            
+            
+            <div class="stockElement">
+              <button class="cartDecrement">-</button>
+              <p class="productQuantity">1</p>
+              <button class="cartIncrement">+</button>
+            </div>
+            
+          </div>
+          <div class="productColorElement">
+            <p class="productColor"></p>
+            
+            <div class="productColorGrid"></div>
+        </div>
+        
+          <div class="productOpr" style="display: flex; gap: 10px;">
+            <button class="add-to-cart-button">
+              Add To <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+            <button class="buy-now">
+              Buy it Now
+            </button>
+            
+          </div>
+        </article>
+      </div>
+    </template>
+    <footer class="section-footer">
+      <div class="footer-container container">
+        <div class="content_1">
+          <img src="./images/logo.png" alt="logo" />
+          <p>
+            Welcome to sitename EcomStore, your ultimate shopping destination.
+          </p>
+          <div class="feedback-container">
+            <p>DID YOU FIND INFORMATION ON THIS SITE USEFUL?</p>
+            <button style="outline: none;" class="feedback-button like" id="likeButton">
+              <i class="fa-solid fa-thumbs-up fa-xl"></i>
+            </button>
+            <button style="outline: none;" class="feedback-button dislike" id="dislikeButton">
+              <i class="fa-solid fa-thumbs-down fa-xl"></i>
+            </button>
+        </div>
+        </div>
+        
+        <div class="content_2">
+          <h4>SHOPPING</h4>
+          <a href="products.html?type=Food">Foods</a>
+          <a href="products.html?type=Electronics">Electronics</a>
+          <a href="products.html?type=Jewellery">Jewellery</a>
+        </div>
+        <div class="content_3">
+          <h4>INFORMATION</h4>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact Us</a>
+          <a href="./orders.html">Track Your Orders</a>
+        </div>
+        <div class="content_4">
+          <div class="touch-container">
+              <h4>GET IN TOUCH</h4>
+              <div class="touch-info">
+                  <p>Prita Designs Pvt Ltd,</p>
+                  <p>Vaishnavi Properties, #30/1, Silicon Terraces,</p>
+                  <p>2nd and 3rd Floor, Adugodi, Hosur Main Road, Koramangala, Bengaluru – 560095</p>
+                  <p>For queries and feedback, write to us at:</p>
+                  <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@sitename.com" target="_blank">Email : support@sitename.com</a></p>
+                  <p>Phone: 08069894292</p>
+              </div>
+              <h4 style="color: #fff;" >Subscribe to Our Newsletter</h4>
+              <p>Be the first to know about new arrivals, sales & promos!</p>
+              <div class="f-mail" style="display: flex;">
+                  <input type="email" class="emailInput" placeholder="Your Email" required/>
+                  <button style="background-color:darkred; border: 10px solid darkred;  outline: none; height: 52px; width: 15rem; font-size: 16px; color: white;" class="subscribe">Subscribe</button>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <a href="https://www.facebook.com/login" target="_blank">
+                    <button id="facebook" class="socialMedia" style="outline: none; margin-right: 10px;">
+                        <i style="color: #fff;" class="fa-brands fa-facebook"></i>
+                    </button>
+                </a>
+                <a href="https://www.instagram.com/accounts/login/" target="_blank">
+                    <button id="instagram" class="socialMedia" style="outline: none;">
+                        <i style="color: #fff;" class="fa-brands fa-instagram"></i>
+                    </button>
+                </a>
+            </div>
+            <hr />
+              
+          </div>
+      </div>
+  
+      <!-- Modal -->
+      <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="feedbackModalLabel">Feedback</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="userEmail" style="color: black;"></label>
+                            <input type="email" class="form-control" id="userEmail" placeholder="Enter your email" required style="font-size: 14px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="userMessage" style="color: black;">WHAT CAN WE DO BETTER?</label>
+                            <textarea class="form-control" id="userMessage" rows="3" placeholder="Enter your feedback here" required style="font-size: 14px;"></textarea>
+                        </div>
+                        <button type="submit" class="add-to-cart-button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+          
+      </div>
+      <div class="f-design">
+        <div class="f-design-txt">
+          <p>Copyright © 2024 Sitename, All Rights Reserved</p>
+        </div>
+        
+      </div>
+    </footer>
+
+    <!-- ========== End footer Section ========== -->
+    
+    <script type="module" src="./js/products.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script type="module" src="./js/subscribeFire.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="module" src="./js/buttonSetup.js"></script>
+    
+    <script type="module" src="./js/loginPrompt.js"></script>
+    
+    <script type="module" src="./js/stickHeader.js"></script>
+    <script type="module" src="./js/siteFeedback.js"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="./js/menu.js"></script>
+   <!-- Chatbot Button -->
+<!-- Chatbot Button -->
+<div class="chat-button" id="chatButton">
+  <span>💬</span>
+</div>
+
+
+<!-- Chatbot Window -->
+<div class="chat-container" id="chatContainer">
+  <div class="chat-header">
+      <span>Happyway Creations' Chatbot</span>
+      <button class="back-button" id="backButton"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+        <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg></button>
+  </div>
+  <div class="chatbox" id="chatbox">
+      <div class="chat-message bot">Hello! How can I assist you today?</div>
+  </div>
+  <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+  </div>
+</div>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+  * {
+      font-family: 'Poppins', sans-serif;
+  }
+
+
+  .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #94c383;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      font-size: 30px;
+      transition: transform 0.3s ease-in-out;
+  }
+
+
+  .chat-container {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 400px;
+      height: 550px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      display: none;
+  }
+
+
+  .chat-header {
+      background-color: #94c383;
+      color: white;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+
+  .chat-header .back-button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+  }
+
+
+  .chatbox {
+      flex-grow: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+  }
+
+
+  .chat-message {
+      max-width: 75%;
+      padding: 12px 18px;
+      border-radius: 20px;
+      margin: 8px 0;
+      line-height: 1.5;
+      font-size: 14px;
+      word-wrap: break-word;
+  }
+
+
+  .chat-message.user {
+      background-color: #94c383;
+      color: white;
+      align-self: flex-end;
+  }
+
+
+  .chat-message.bot {
+      background-color: #f1f1f1;
+      color: black;
+      align-self: flex-start;
+  }
+
+
+  .chat-input {
+      padding: 10px;
+      border-top: 2px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      background: #fff;
+  }
+
+
+  .chat-input input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      font-size: 14px;
+  }
+
+
+  .typing-indicator {
+      display: flex;
+      align-items: center;
+      font-style: italic;
+      color: #888;
+      margin: 5px 0 5px 15px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+  }
+
+
+  .typing-dots span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #888;
+      border-radius: 50%;
+      margin: 0 3px;
+      opacity: 0.4;
+      animation: blink 1.5s infinite;
+  }
+
+
+  .typing-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+  }
+
+
+  .typing-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+  }
+
+
+  @keyframes blink {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+  }
+  </style>
+
+
+<script>
+  const chatButton = document.getElementById("chatButton");
+  const chatContainer = document.getElementById("chatContainer");
+  const backButton = document.getElementById("backButton");
+  const userInput = document.getElementById("userInput");
+  const chatbox = document.getElementById("chatbox");
+
+
+  const faq = [
+    { keywords: ["happywaycreations", "about"], response: "HappyWayCreations is a complete eCommerce platform offering a seamless shopping experience, from browsing products to making secure payments." },
+    { keywords: ["account", "signup", "register", "create"], response: "You can create an account by clicking on the 'Sign Up' button and filling in your details. If you already have an account, click 'Log In'." },
+    { keywords: ["filter", "sort", "category"], response: "You can filter products by category, price range, brand, and more using our easy-to-use filtering system on the products page." },
+    { keywords: ["categories", "products", "types"], response: "We offer multiple product categories, including fashion, electronics, home decor, and more. Browse the 'Categories' section for details." },
+    { keywords: ["coupon", "discount", "promo"], response: "You can apply coupons during checkout by entering your promo code in the 'Apply Coupon' field." },
+    { keywords: ["payment", "pay", "methods"], response: "We accept multiple payment options, including credit/debit cards, UPI, net banking, and cash on delivery." },
+    { keywords: ["secure", "safe", "security"], response: "Yes! We use secure encryption to protect your payment details and ensure a safe transaction." },
+    { keywords: ["track", "order", "status"], response: "You can track your order by logging into your account and navigating to the 'My Orders' section." },
+    { keywords: ["newsletter", "subscribe", "offers"], response: "Yes! Subscribe to our newsletter to stay updated on new arrivals, exclusive discounts, and special offers." },
+    { keywords: ["about us", "company", "who"], response: "Visit our 'About Us' page to learn more about HappyWayCreations and our mission." },
+    { keywords: ["contact", "support", "help"], response: "You can reach our support team through the 'Contact Us' page or email us at support@happywaycreations.com." },
+    { keywords: ["return", "exchange", "refund"], response: "Yes! We offer easy returns and exchanges. Check our 'Refund & Return Policy' page for details." },
+    { keywords: ["jewellery", "bracelets", "bangles", "earrings", "pendants"], response: "We offer a variety of jewellery including bracelets, bangles, earrings, and pendants." },
+    { keywords: ["swarovski", "kalyaan jewellers"], response: "Yes! We have jewellery from Swarovski and Kalyaan Jewellers." },
+    { keywords: ["food", "snacks", "high-fiber biscuits"], response: "We offer a wide range of food products, including healthy snacks like high-fiber biscuits." },
+    { keywords: ["electronics", "smartwatches", "wireless headphones"], response: "We offer a range of electronics including smartwatches, wireless headphones, and more." },
+    { keywords: ["shipping", "delivery", "charges"], response: "Shipping charges vary based on location. Visit our 'Shipping Policy' for details." },
+    { keywords: ["order cancellation", "cancel order"], response: "You can cancel an order before it is shipped from the 'My Orders' section in your account." },
+    { keywords: ["emi", "payment options"], response: "Yes, we offer EMI options for expensive items. Choose EMI during checkout." },
+    { keywords: ["return policy", "refund request"], response: "You can request a refund through our 'Returns & Refund Policy' page." },
+    { keywords: ["location", "store near me", "nearby stores"], response: "We operate online, but you can check our 'Store Locator' page for any nearby physical stores." },
+    { keywords: ["country", "available in my country", "service area"], response: "We currently ship to select countries. Please enter your address at checkout to check availability." },
+    { keywords: ["track location", "current location", "where am I"], response: "For personalized recommendations, allow location access in your browser settings." },
+    { keywords: ["store timings", "working hours", "when open"], response: "Our online store operates 24/7, while physical store timings vary by location." },
+    { keywords: ["customer service hours", "support timings"], response: "Our customer service is available from 9 AM to 9 PM IST, Monday to Saturday." },
+   
+    // Additional questions based on website navigation
+    { keywords: ["find", "product", "search"], response: "Use the search bar at the top of the website to find products by name, category, or brand." },
+    { keywords: ["jewellery section", "where", "bangles"], response: "You can find bangles under the 'Jewellery' section on our website." },
+    { keywords: ["swarovski necklace", "where to find"], response: "Visit the 'Jewellery' section and browse the 'Swarovski' category for necklaces." },
+    { keywords: ["snacks", "kurkure", "chips"], response: "You can find Kurkure potato chips under the 'Food' category." },
+    { keywords: ["mayonnaise", "food", "hellmann"], response: "Find 'Veg Mayonnaise' in the 'Food' section under the 'Hellmann' brand." },
+    { keywords: ["smartphones", "electronics", "mobile"], response: "Check the 'Electronics' category for the latest smartphones." },
+    { keywords: ["wireless headphones", "where", "electronics"], response: "Find 'Wireless Headphones' under the 'Electronics' category, listed under 'SoundBeats'." },
+    { keywords: ["swarovski earrings", "where to buy"], response: "Earrings from Swarovski are available in the 'Jewellery' section." },
+    { keywords: ["cornflakes", "kellogg's", "breakfast"], response: "Look for 'Kellogg's Cornflakes' under the 'Food' category, listed under 'Nestle'." },
+    { keywords: ["shopping cart", "where", "cart"], response: "Click on the cart icon at the top-right of the page to view your shopping cart." },
+    { keywords: ["checkout", "buy now", "payment"], response: "After adding items to your cart, click 'Proceed to Checkout' to complete your purchase." }
+    [
+  {
+    "keywords": ["luxurious bracelet", "white crystals", "Meteora Bangle"],
+    "response": "Yes! You can check out the Meteora Bangle from Kalyaan. It features a sleek, rhodium-plated design adorned with brilliant white crystals. To find it on our website, go to the Jewelry section under Accessories, or search for 'Meteora Bangle' in the search bar."
+  },
+  {
+    "keywords": ["premium necklace", "infinity design", "Infinity Necklace"],
+    "response": "You might love the Swarovski Infinity Necklace! It beautifully intertwines the infinity symbol with a delicate design. To find it, head to Jewelry > Necklaces or search for 'Infinity Necklace' on our website."
+  },
+  {
+    "keywords": ["hoop earrings", "round-cut crystals", "Attract Trilogy Earrings"],
+    "response": "Yes! We have the Attract Trilogy Hoop Earrings from Swarovski. They feature a stunning round-cut design with radiant white stones. To find them, visit Jewelry > Earrings or search for 'Attract Trilogy Earrings' on our website."
+  },
+  {
+    "keywords": ["smartwatch", "fitness tracking", "water-resistant"],
+    "response": "We have a Smartwatch from FitTech with a 1.3-inch AMOLED display, fitness tracking, and a water-resistant design. You can find it under Electronics > Watches or search 'Smartwatch' in the search bar."
+  },
+  {
+    "keywords": ["Dell laptop", "i5 processor", "SSD storage"],
+    "response": "We have a Dell Laptop with a quad-core i5 processor, 8GB RAM, 256GB SSD, and a 14-inch FHD display. You can find it under Electronics > Laptops or search 'Dell Laptop' on our website."
+  },
+  {
+    "keywords": ["wireless headphones", "over-ear design", "long battery life"],
+    "response": "Yes! The SoundBeats Wireless Headphones come with an over-ear design and 20 hours of battery life. Check them out under Electronics > Audio or search 'Wireless Headphones' on our website."
+  },
+  {
+    "keywords": ["Hellmann's Veg Mayonnaise", "sauces", "spreads"],
+    "response": "You can find Hellmann's Veg Mayonnaise under Groceries > Sauces & Spreads. Just search for 'Veg Mayonnaise' in the search bar."
+  },
+  {
+    "keywords": ["Kellogg's Cornflakes", "breakfast cereals", "Cornflakes"],
+    "response": "You can find Kellogg's Corn Flakes in the Breakfast Cereals section under Groceries. You can also search 'Cornflakes' on our website."
+  },
+  {
+    "keywords": ["Lay's Magic Masala", "potato chips", "snacks"],
+    "response": "Yes! You can find Lay's India's Magic Masala Potato Chips (40g) under Snacks > Chips & Crisps, or just search 'Potato Chips' in the search bar."
+  }
+]   
+];
+  chatButton.addEventListener("click", () => {
+      chatContainer.style.display = "flex";
+      chatButton.style.display = "none";
+  });
+
+
+  backButton.addEventListener("click", () => {
+      chatContainer.style.display = "none";
+      chatButton.style.display = "flex";
+  });
+
+
+  userInput.addEventListener("keypress", (e) => {
+      if (e.key === 'Enter') {
+          sendMessage();
+      }
+  });
+
+
+  function sendMessage() {
+      const message = userInput.value.trim().toLowerCase();
+      if (message) {
+          appendMessage('user', message);
+          userInput.value = '';
+          showTypingIndicator();
+          setTimeout(() => {
+              respondToMessage(message);
+              hideTypingIndicator();
+          }, getRandomTypingDelay());
+      }
+  }
+
+
+  function appendMessage(sender, message) {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("chat-message", sender);
+      messageDiv.innerText = message;
+      chatbox.appendChild(messageDiv);
+      chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+
+  function respondToMessage(message) {
+      let response = "I'm not sure about that. Please ask something related to HappyWayCreations.";
+
+
+      for (const entry of faq) {
+          if (entry.keywords.some(keyword => message.includes(keyword))) {
+              response = entry.response;
+              break;
+          }
+      }
+
+
+      setTimeout(() => {
+          appendMessage('bot', response);
+      }, 500);
+  }
+
+
+  function showTypingIndicator() {
+      const typingDiv = document.createElement("div");
+      typingDiv.classList.add("typing-indicator");
+      typingDiv.innerHTML = "Bot is typing";
+      chatbox.appendChild(typingDiv);
+      typingDiv.style.opacity = "1";
+  }
+
+
+  function hideTypingIndicator() {
+      const typingDiv = document.querySelector(".typing-indicator");
+      if (typingDiv) {
+          typingDiv.style.opacity = "0";
+          setTimeout(() => typingDiv.remove(), 300);
+      }
+  }
+
+
+  function getRandomTypingDelay() {
+      return Math.floor(Math.random() * (3000 - 1500 + 1)) + 1500; // 1.5s to 3s delay
+  }
+</script>
+
+<script type="module" src="./js/routes.js"></script>
+  </body>
+</html>

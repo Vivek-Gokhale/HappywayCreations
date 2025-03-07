@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Portfolio</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Jost:wght@300;400;500;700&family=Poppins:wght@200;300;400;600&family=Quicksand:wght@300;400;500;600&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <style>
+   table {
+ width: 100%;
+ border-collapse: collapse;
+ font-size: 16px;
+}
+
+th, td {
+ padding: 20px;
+ text-align: left;
+}
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+th {
+ background-color: #f2f2f2;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  table {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none; /* Hide table headers on mobile */
+  }
+
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    position: relative;
+  }
+
+  td {
+    display: block;
+    text-align: left;
+    padding: 5px 10px;
+    border: none;
+    position: relative;
+  }
+
+  /* Add labels for mobile view */
+  td:nth-child(2):before {
+    content: "Product: ";
+    font-weight: bold;
+  }
+
+  td:nth-child(3):before {
+    content: "Price: ";
+    font-weight: bold;
+  }
+
+  td:nth-child(5):before {
+    content: "Quantity: ";
+    font-weight: bold;
+  }
+
+  /* Image container */
+  .imageContainer {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .imageContainer img {
+    max-width: 120px;
+    height: auto;
+  }
+
+  /* Updated quantity controls to match desktop view */
+  .stockElement {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: auto !important;
+    margin: 10px 0;
+  }
+
+  .stockElement button {
+    width: 40px !important;
+    height: 40px !important;
+    border: 1px solid #ccc !important;
+    background-color: #fff !important;
+    color: #000 !important;
+    font-size: 18px !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0 !important;
+    border-radius: 0 !important; /* Remove border radius */
+  }
+
+  .stockElement button:hover {
+    background-color: #f5f5f5 !important;
+  }
+
+  .stockElement p {
+    margin: 0;
+    min-width: 40px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0 15px;
+  }
+
+  /* Remove any special mobile-specific button styles */
+  .stockElement button.wishIncrement,
+  .stockElement button.wishDecrement {
+    min-width: unset;
+    min-height: unset;
+    border-radius: 0;
+  }
+
+  /* Buttons */
+  td:last-child {
+    padding: 10px;
+  }
+
+  .add-to-cart-button-from-wishlist,
+  .remove-to-wishlist-button {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Container width fix */
+  #productCartContainer {
+    width: 100% !important;
+  }
+
+  /* Container padding adjustment */
+  .container {
+    padding: 10px;
+  }
+
+  /* Mobile Navigation Styles */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #0B4619;
+    padding: 20px;
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .navbar.active {
+    left: 0;
+  }
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar ul li {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    padding: 5px 0;
+  }
+
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
+    z-index: 1001;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+  .hamburger-menu i {
+    font-size: 24px;
+    color: #000;
+  }
+
+  /* Add overlay when menu is active */
+  .navbar::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: -1;
+  }
+
+  .navbar.active::before {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header-buttons {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  tr {
+    margin-bottom: 10px;
+  }
+
+  .stockElement button {
+    padding: 3px 8px;
+  }
+
+  .imageContainer img {
+    max-width: 100px;
+  }
+}
+
+/* Desktop-only styles (above 768px) */
+@media screen and (min-width: 769px) {
+    .add-to-cart-button-from-wishlist {
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    .remove-to-wishlist-button {
+        display: block;
+    }
+    
+    td:last-child {
+        display: block;
+        text-align: center;
+    }
+
+    .hamburger-menu {
+      display: none;
+    }
+
+    .navbar {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: 0;
+      background: none;
+      overflow: visible;
+    }
+
+    .navbar ul {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    .navbar ul li.mobile-only {
+      display: none;
+    }
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- ========== Start Navbar ========== -->
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head_container">
+          <div class="head_txt">
+            <!-- <p>Free shipping, 30-day return or refund guarantee.</p> -->
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img src="./images/logo.png"
+              alt="sitename eCommerce logo"
+              class="logo"
+              width="10%"
+              height="auto"
+            />
+          </a>
+        </div>
+
+        <button class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="navbar">
+
+
+          <ul>
+            <li class="nav-item">
+              <a  class="nav-link" id="indexLink" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="productsLink" href="#">products</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="eventsLink" href="#">Events</a>
+            </li>
+            <li class="nav-item">
+                <a  class="nav-link" id="aboutLink" href="about.html">about</a>
+              </li>
+           
+            <li class="nav-item">
+              <a  class="nav-link" id="contactLink" href="#">contact</a>
+            </li>
+
+            
+           
+           
+          </ul>
+        </nav>
+        <div class="header-buttons">
+          <!-- Buttons will be dynamically inserted by auth.js -->
+        </div>
+      </div>
+    </header>
+
+    <section class="wishListElement">
+      <div class="container" style="padding-top: 0%;">
+        <table>
+          <thead>
+              <tr>
+                  <th>Image</th>
+                  <th>Product Name</th>
+                  <th>Price</th>
+                  <th>Status</th>
+                  <th>Quantity</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody id="productList">
+            <!-- This is where the product templates will be dynamically inserted -->
+        </tbody>
+      </table>
+        <section>
+          <div id="productCartContainer" style="width: 1400px;"></div>
+        </section>
+
+       
+        
+      </div>
+    </section>
+
+    <!-- Template for a product -->
+     
+    <template id="productCartTemplate">
+      
+      <tr class="product-row" id="cardValue" data-product-id="">
+        <td class="imageContainer">
+          <a href="singleProductPage.html" data-id="" class="productNameLink">
+          <img class="productImage" src="" alt="Product Image" />
+        </a>
+        </td>
+        <td class="productName"></td>
+        <td class="product-price"></td>
+        <td class="product-status">
+          <div>
+            <span class="category"></span>
+          </div>
+        </td>
+        <td>
+          <div class="stockElement" style="width: 200px;">
+            <button class="wishDecrement">-</button>
+            <p class="productQuantity">1</p>
+            <button class="wishIncrement">+</button>
+          </div>
+        </td>
+        <td>
+          <button class="add-to-cart-button-from-wishlist" id="addToCart">
+            Add To <i class="fa-solid fa-cart-shopping"></i>
+          </button>
+          <button class="add-to-cart-button remove-to-wishlist-button" id="removeFromWish">
+            Remove
+          </button>
+        </td>
+      </tr>
+    </template>
+    
+
+    <!-- ========== Start footer Section ========== -->
+    <footer class="section-footer">
+      <div class="footer-container container">
+        <div class="content_1">
+          <img src="./images/logo.png" alt="logo" />
+          <p>
+            Welcome to sitename EcomStore, your ultimate shopping destination.
+          </p>
+          <div class="feedback-container">
+            <p>DID YOU FIND INFORMATION ON THIS SITE USEFUL?</p>
+            <button style="outline: none;" class="feedback-button like" id="likeButton">
+              <i class="fa-solid fa-thumbs-up fa-xl"></i>
+            </button>
+            <button style="outline: none;" class="feedback-button dislike" id="dislikeButton">
+              <i class="fa-solid fa-thumbs-down fa-xl"></i>
+            </button>
+        </div>
+        </div>
+        
+        <div class="content_2">
+          <h4>SHOPPING</h4>
+          <a href="products.html?type=Food">Foods</a>
+          <a href="products.html?type=Electronics">Electronics</a>
+          <a href="products.html?type=Jewellery">Jewellery</a>
+        </div>
+        <div class="content_3">
+          <h4>INFORMATION</h4>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact Us</a>
+          <a href="./orders.html">Track Your Orders</a>
+        </div>
+        <div class="content_4">
+          <div class="touch-container">
+              <h4>GET IN TOUCH</h4>
+              <div class="touch-info">
+                  <p>Prita Designs Pvt Ltd,</p>
+                  <p>Vaishnavi Properties, #30/1, Silicon Terraces,</p>
+                  <p>2nd and 3rd Floor, Adugodi, Hosur Main Road, Koramangala, Bengaluru – 560095</p>
+                  <p>For queries and feedback, write to us at:</p>
+                  <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@sitename.com" target="_blank">Email : support@sitename.com</a></p>
+                  <p>Phone: 08069894292</p>
+              </div>
+              <h4 style="color: #fff;" >Subscribe to Our Newsletter</h4>
+              <p>Be the first to know about new arrivals, sales & promos!</p>
+              <div class="f-mail" style="display: flex;">
+                  <input type="email" class="emailInput" placeholder="Your Email" required/>
+                  <button style="background-color:darkred; border: 10px solid darkred;  outline: none; height: 52px; width: 15rem; font-size: 16px; color: white;" class="subscribe">Subscribe</button>
+              </div>
+              <div>
+                  <br>
+                  <button id="facebook" class="socialMedia" style="outline: none;"><i style="color: #fff;" class="fa-brands fa-facebook"></i></button>&emsp;
+                  <button id="instagram" class="socialMedia" style="outline: none;"><i style="color: #fff;" class="fa-brands fa-instagram"></i></button>
+              </div>
+              <hr />
+              
+          </div>
+      </div>
+  
+      <!-- Modal -->
+      <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="feedbackModalLabel">Feedback</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="userEmail" style="color: black;"></label>
+                            <input type="email" class="form-control" id="userEmail" placeholder="Enter your email" required style="font-size: 14px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="userMessage" style="color: black;">WHAT CAN WE DO BETTER?</label>
+                            <textarea class="form-control" id="userMessage" rows="3" placeholder="Enter your feedback here" required style="font-size: 14px;"></textarea>
+                        </div>
+                        <button type="submit" class="add-to-cart-button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+          
+      </div>
+      <div class="f-design">
+        <div class="f-design-txt">
+          <p>Copyright © 2024 Sitename, All Rights Reserved</p>
+        </div>
+        
+      </div>
+    </footer>
+    <!-- ========== End footer Section ========== -->
+
+    <!-- Load all scripts at the end of body -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/menu.js"></script>
+    
+    <!-- Load modules -->
+    <script type="module">
+      import { addToCartFromWishList } from './addToCartFromWishlist.js';
+      import { removeProductFromWish } from './removeProductFromWish.js';
+      import { showToast } from './showToast.js';
+
+      // Make functions available globally
+      window.handleAddToCart = async function(button) {
+          const row = button.closest('tr');
+          const productId = row.getAttribute('data-product-id') || row.dataset.productId;
+          const userEmail = sessionStorage.getItem('userEmail');
+          if (productId && userEmail) {
+              try {
+                  await addToCartFromWishList(button, productId, null);
+                  showToast("success", "Product moved to cart");
+              } catch (error) {
+                  console.error('Error:', error);
+                  showToast("error", "Failed to process request");
+              }
+          }
+      };
+
+      window.handleRemoveFromWishlist = async function(button) {
+          const row = button.closest('tr');
+          const productId = row.dataset.productId;
+          const userEmail = sessionStorage.getItem('userEmail');
+          if (productId && userEmail) {
+              try {
+                  await removeProductFromWish(productId, userEmail);
+              } catch (error) {
+                  console.error('Error:', error);
+                  showToast("error", "Failed to remove from wishlist");
+              }
+          }
+      };
+
+      // Add event listeners after the DOM is loaded
+      document.addEventListener('DOMContentLoaded', function() {
+          document.addEventListener('click', function(e) {
+              if (e.target.closest('.add-to-cart-button-from-wishlist')) {
+                  handleAddToCart(e.target.closest('.add-to-cart-button-from-wishlist'));
+              }
+              if (e.target.closest('.remove-to-wishlist-button')) {
+                  handleRemoveFromWishlist(e.target.closest('.remove-to-wishlist-button'));
+              }
+          });
+      });
+    </script>
+
+    <!-- Load other module scripts -->
+    <script type="module" src="./js/auth.js"></script>
+    <script type="module" src="./js/showWishList.js"></script>
+    <script type="module" src="./js/buttonSetup.js"></script>
+    <script type="module" src="./js/subscribeFire.js"></script>
+    <script type="module" src="./js/loginPrompt.js"></script>
+    <script type="module" src="./js/stickHeader.js"></script>
+    <script type="module" src="./js/siteFeedback.js"></script>
+    <script src="./js/menu.js"></script> 
+    
+<script type="module" src="./js/routes.js"></script>
+  </body>
+
+</html>
+
+<style>
+/* Custom CSS for overriding Bootstrap styles */
+.wishListElement .cards {
+  /* Your custom styles */
+  
+}
+
+.wishListElement .cards .information {
+  /* Your custom styles */
+  background:none;
+  border: none;
+}
+
+.wishListElement .cards .information .productImage {
+  /* Your custom styles */
+}
+
+/* Add more custom styles as needed */
+</style>

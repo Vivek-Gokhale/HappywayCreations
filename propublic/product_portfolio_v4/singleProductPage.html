@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Jost:wght@300;400;500;700&family=Poppins:wght@200;300;400;600&family=Quicksand:wght@300;400;500;600&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css">
+    <title>Product Portfolio</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
+
+    <!-- Demo styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <!-- bootstrap -->
+    
+  
+    <style>
+  
+      .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  /* height: 100%;
+  object-fit: cover; */
+}
+
+.swiper {
+  width: 100%;
+}
+
+
+
+.swiper_thumb .swiper-slide {
+  opacity: 0.7;
+}
+
+.swiper_thumb .swiper-slide:hover {
+  opacity: 1;
+}
+
+.swiper_thumb .swiper-slide-thumb-active {
+  opacity: 1;
+  border: 2px solid #13491B;
+}
+
+
+  .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: auto; /* Adjust the height based on the width */
+        max-height: 300px; /* Set a maximum height for the images */
+        object-fit: contain; /* Contain the image within the slider */
+        user-select: none;
+      }
+
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #13491B;
+  background: rgba(255, 255, 255, .8);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 2px #13491B;
+  z-index: 9;
+}
+
+.swiper-button-next,
+.swiper-button-prev::after {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.swiper-button-prev,
+.swiper-button-next::after {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.swiper-button-next {
+  right: 0px;
+}
+
+.swiper-button-prev {
+  left: 0px;
+}
+
+.swiper-button-next:hover {
+  color: #ccc;
+  background: #13491B;
+}
+
+.swiper-button-prev:hover {
+  color: #ccc;
+  background: #13491B;
+}
+.review-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.review:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.author-name {
+    font-weight: bold;
+}
+
+.review-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 1rem;
+}
+
+.stars {
+    color: #ffa500;
+    margin-right: 10px;
+}
+
+.review-title {
+    font-weight: bold;
+}
+
+.review-date {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.review-details {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.verified-purchase {
+    color: #b12704;
+}
+
+.review-body {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.review-img {
+    display: flex;
+    gap: 0.5rem;
+    /* margin-top: 1rem; */
+}
+
+.review-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-content {
+  
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 600px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+.color-container {
+      /* padding: 20px; */
+      /* border: 1px solid #ccc;
+      border-radius: 8px; */
+      width: fit-content;
+    }
+
+    .color-container p {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .color-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .productColorGrid{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .product-color-option {
+      width: 25px;
+      height: 25px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    .product-color-option:hover {
+      border-color: #000;
+    }
+
+    .product-color-option input {
+      display: none;
+    }
+
+    .product-color-option input:checked + .color-circle {
+      border: 2px solid #000;
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+
+    .color-option:hover {
+      border-color: #000;
+    }
+
+    .color-option input {
+      display: none;
+    }
+
+    .color-option input:checked + .color-circle {
+      border: 2px solid #000;
+    }
+
+    .color-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+   
+
+    .color-white { background-color: rosybrown }
+    .color-black { background-color: #000; }
+    .color-blue { background-color: #0000ff; }
+    .color-lightblue { background-color: #00ffff; }
+    .color-brown { background-color: #a52a2a; }
+    .color-gray { background-color: #808080; }
+    .color-green { background-color: #008000; }
+    .color-rainbow { background-image: linear-gradient(to bottom right, red, orange, yellow, green, blue, indigo, violet); }
+    .color-yellow { background-color: #ffff00; }
+    .color-orange { background-color: #ffa500; }
+    .color-pink { background-color: #ffc0cb; }
+    .color-purple { background-color: #800080; }
+    .color-red { background-color: #ff0000; }
+    .color-beige { background-color: #f5f5dc; }
+
+    </style>
+  </head>
+  <body>
+    <!-- ========== Start Navbar ========== -->
+    <!-- <script type="module" src="main.js"></script> -->
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <div class="head_txt">
+            <!-- <p>Free shipping, 30-day return or refund guarantee.</p> -->
+          </div>
+          <div class="sing_in_up">
+            
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img
+            src="public/images/logo.png"
+              alt="sitename eCommerce logo"
+              class="logo"
+              width="80%"
+              height="auto"
+            />
+          </a>
+        </div>
+
+        <nav class="navbar">
+          <ul>
+            <li class="nav-item">
+              <a href="/" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link">products</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link">about</a>
+              </li>
+           
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">contact</a>
+            </li>
+           
+           
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- ========== End Navbar ========== -->
+    <!-- ========== Start About Section ========== -->
+
+    <section class="clickble_slider1">
+      <div class="singleProdContainer">
+        <div class="row" style="margin: -20px;">
+          <div class="col-sm-6" style="margin-top: 6rem;">
+            <!-- Swiper -->
+            <div class="row">
+              <div class="col-md-12 px-0 py-2">
+                <div class="swiper swiper_large_preview">
+                  <div class="swiper-wrapper"></div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+              </div>
+              <div class="col-md-12 px-0 py-2"  style="margin-left: 50px;">
+                <div thumbsSlider="" class="swiper swiper_thumb">
+                  <div class="swiper-wrapper"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <section class="section-products">
+              <section class="container">
+                <div id="productContainer" ></div>
+              </section>
+            </section>
+          </div>
+        </div>
+      </div>
+      
+    
+  </section>
+    
+  
+
+   
+    <template id="productTemplate">
+       
+        <div id="singleCard" style="width: 350px;">
+          <article class="information [card]">
+           
+           
+            <h1 class="productName"></h1>
+            <span class="category"></span>
+            <p class="brandName"></p>
+  
+            <div class="productRating" style="font-size: 16px;">
+            </div>
+            
+            <p class="productDescription"></p>
+  
+            <div class="productPriceElement">
+              <p class="productPrice"></p>
+              <p class="productActualPrice"></p>
+              <p class="discountPr"></p>
+              <input type="hidden" class="tax" value="hiddenValue">
+            </div>
+  
+            <div class="productStockElement">
+              <p class="productProperty">Total Stocks Available:</p>
+              <p class="productStock"></p>
+              <button  class="wish-list-button" style="outline: none; margin-top: -9px;">
+                <i class="fa-regular fa-heart fa-2xl"></i>
+              </button>
+            </div>
+  
+            <div class="productQuantityElement">
+              <p class="productProperty">Quantity</p>
+              <div class="stockElement">
+                <button class="cartDecrement">-</button>
+                <p class="productQuantity">1</p>
+                <button class="cartIncrement">+</button>
+              </div>
+            </div>
+            <div class="productColorElement">
+              <p class="productColor"></p>
+              
+              <div class="productColorGrid"></div>
+          </div>
+            <div style="display: flex; gap: 10px;">
+              <button class="add-to-cart-button">
+                Add To <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+              <button class="buy-now">
+                Buy it Now
+              </button>
+              
+            </div>
+            
+          </article>
+        </div>
+        
+      </template>
+      <div class="review-container">
+        <h2>Customers reviews</h2>
+        <div id="reviews"></div>
+    </div>
+
+    <template id="review-template">
+        <div class="review">
+            <div class="review-header">
+                <div class="review-author" style="gap: 1rem;">
+                    <i class="fa-solid fa-user fa-xl" style="color: grey;"></i>
+                    <span class="author-name">Author Name</span>
+                </div>
+                <div class="review-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="review-title">Review Title</span>
+                    <span class="verified-purchase">Verified Purchase</span>
+                </div>
+                <div class="review-body">
+                    <p>Review content goes here.</p>
+                </div>
+                <div class="review-img">
+                    
+                </div>
+            </div>
+            <br>
+            <hr/>
+        </div>
+    </template>
+
+<!-- Add this somewhere in your HTML -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<footer class="section-footer">
+  <div class="footer-container container">
+    <div class="content_1">
+      <img src="public/images/logo.png" alt="logo" />
+      <p>
+        Welcome to sitename EcomStore, your ultimate shopping destination.
+      </p>
+      <div class="feedback-container">
+        <p>DID YOU FIND INFORMATION ON THIS SITE USEFUL?</p>
+        <button style="outline: none;" class="feedback-button like" id="likeButton">
+          <i class="fa-solid fa-thumbs-up fa-xl"></i>
+        </button>
+        <button style="outline: none;" class="feedback-button dislike" id="dislikeButton">
+          <i class="fa-solid fa-thumbs-down fa-xl"></i>
+        </button>
+    </div>
+    </div>
+    
+    <div class="content_2">
+      <h4>SHOPPING</h4>
+      <a href="products.html?type=Food">Foods</a>
+      <a href="products.html?type=Electronics">Electronics</a>
+      <a href="products.html?type=Jewellery">Jewellery</a>
+    </div>
+    <div class="content_3">
+      <h4>INFORMATION</h4>
+      <a href="./about.html">About Us</a>
+      <a href="./contact.html">Contact Us</a>
+      <a href="./orders.html">Track Your Orders</a>
+    </div>
+    <div class="content_4">
+      <div class="touch-container">
+          <h4>GET IN TOUCH</h4>
+          <div class="touch-info">
+              <p>Prita Designs Pvt Ltd,</p>
+              <p>Vaishnavi Properties, #30/1, Silicon Terraces,</p>
+              <p>2nd and 3rd Floor, Adugodi, Hosur Main Road, Koramangala, Bengaluru – 560095</p>
+              <p>For queries and feedback, write to us at:</p>
+              <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@sitename.com" target="_blank">Email : support@sitename.com</a></p>
+              <p>Phone: 08069894292</p>
+          </div>
+          <h4 style="color: #fff;" >Subscribe to Our Newsletter</h4>
+          <p>Be the first to know about new arrivals, sales & promos!</p>
+          <div class="f-mail" style="display: flex;">
+              <input type="email" class="emailInput" placeholder="Your Email" required/>
+              <button style="background-color:darkred; border: 10px solid darkred;  outline: none; height: 52px; width: 15rem; font-size: 16px; color: white;" class="subscribe">Subscribe</button>
+          </div>
+          <div>
+              <br>
+              <button id="facebook" class="socialMedia" style="outline: none;"><i style="color: #fff;" class="fa-brands fa-facebook"></i></button>&emsp;
+              <button id="instagram" class="socialMedia" style="outline: none;"><i style="color: #fff;" class="fa-brands fa-instagram"></i></button>
+          </div>
+          <hr />
+          
+      </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="feedbackModalLabel">Feedback</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <label for="userEmail" style="color: black;"></label>
+                        <input type="email" class="form-control" id="userEmail" placeholder="Enter your email" required style="font-size: 14px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="userMessage" style="color: black;">WHAT CAN WE DO BETTER?</label>
+                        <textarea class="form-control" id="userMessage" rows="3" placeholder="Enter your feedback here" required style="font-size: 14px;"></textarea>
+                    </div>
+                    <button type="submit" class="add-to-cart-button">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+      
+  </div>
+  <div class="f-design">
+    <div class="f-design-txt">
+      <p>Copyright © 2024 Sitename, All Rights Reserved</p>
+    </div>
+    
+  </div>
+</footer>
+    <!--* ========== Start Footer Section ========== -->
+
+   
+    <!-- Include the footer JavaScript file -->
+
+    <!--* ========== End Footer Section ========== -->
+
+    <!-- ========== End About Section ========== -->
+
+    <!-- <script type="module" src="main.js"></script>
+     -->
+     
+    <!-- JS SCRIPT  -->
+    <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
+    <!-- <script>
+      AOS.init();
+    </script> -->
+    <script type="module" src="singleProduct.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script type="module" src="subscribeFire.js"></script>
+    <script type="module" src="buttonSetup.js"></script>
+    <script type="module" src="loginPrompt.js"></script>
+    <!-- Initialize Swiper -->
+    <script type="module" src="stickHeader.js"></script>
+     <script type="module" src="siteFeedback.js"></script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+   <!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".swiper_thumb", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    speed: 300,
+    loop: true,
+    freeMode: true,
+    watchSlidesProgress: true,
+    ClickAble: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+  var swiper2 = new Swiper(".swiper_large_preview", {
+    spaceBetween: 10,
+    slidesPerView: 1,
+    // speed: 300,
+    speed: 0,
+    loop: true,
+    // freeMode: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+      swiper: swiper,
+    },
+  });
+</script>
+      <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+      
+  
+       
+  </body>
+</html>

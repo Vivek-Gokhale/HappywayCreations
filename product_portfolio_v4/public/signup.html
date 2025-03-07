@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Portfolio - Sign Up</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 10rem auto;
+            width: 350px;
+            height: auto;
+            background-color: #fff;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            padding: 20px 30px;
+        }
+
+        .title {
+            text-align: center;
+            margin: 10px 0 30px 0;
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid #c0c0c0;
+            outline: 0 !important;
+            box-sizing: border-box;
+            padding: 12px 15px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .form-btn {
+            padding: 10px 15px;
+            border-radius: 20px;
+            border: 0 !important;
+            outline: 0 !important;
+            background: teal;
+            color: white;
+            cursor: pointer;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        .form-btn:active {
+            box-shadow: none;
+        }
+
+        .sign-up-label {
+            margin: 0;
+            font-size: 10px;
+            color: #747474;
+        }
+
+        .sign-up-link {
+            margin-left: 1px;
+            font-size: 11px;
+            text-decoration: underline;
+            text-decoration-color: teal;
+            color: teal;
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        .password-strength-container {
+            margin-bottom: 15px;
+        }
+
+        #passwordStrength {
+            height: 5px;
+            width: 0%;
+            border-radius: 3px;
+        }
+
+        #passwordStrength.weak {
+            background-color: red;
+            width: 33%;
+        }
+
+        #passwordStrength.medium {
+            background-color: orange;
+            width: 66%;
+        }
+
+        #passwordStrength.strong {
+            background-color: green;
+            width: 100%;
+        }
+
+        .strength-text {
+            font-size: 12px;
+            color: #747474;
+            margin-top: 5px;
+        }
+
+        .strength-text span {
+            font-weight: bold;
+        }
+
+        .weak-text {
+            color: red;
+        }
+
+        .medium-text {
+            color: orange;
+        }
+
+        .strong-text {
+            color: green;
+        }
+
+        #errorDisplay {
+            color: red;
+            font-size: 12px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: center;
+        }
+
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <p class="title">Sign Up</p>
+        <form class="form" method="post" id="signupform">
+            <input type="email" class="input" name="user_email" placeholder="Email" required id="signupEmail" autocomplete="off">
+            <div class="input-group">
+                <input type="password" class="input" name="user_password" placeholder="Password" required id="signupPassword" autocomplete="off">
+                <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">👁️</button>
+            </div>
+            <div class="password-strength-container">
+                <div id="passwordStrength"></div>
+                <p class="strength-text" id="passwordStrengthText">Password Strength: <span id="strengthLevel" class="weak-text">Weak</span></p>
+            </div>
+            <input type="text" class="input" name="first_name" placeholder="First Name" required id="FirstName" autocomplete="off">
+            <input type="text" class="input" name="last_name" placeholder="Last Name" required id="LastName" autocomplete="off">
+            <input type="tel" class="input" name="user_phone_no" placeholder="Phone Number" required id="Phone_no" autocomplete="off">
+
+            <!-- Address Fields -->
+            <input type="text" class="input" name="house_apartment" placeholder="House/Apartment" required id="HouseApartment" autocomplete="off">
+            <input type="text" class="input" name="area" placeholder="Area" required id="Area" autocomplete="off">
+            <input type="text" class="input" name="landmark" placeholder="Landmark" required id="Landmark" autocomplete="off">
+            <input type="text" class="input" name="town_city" placeholder="Town/City" required id="TownCity" autocomplete="off">
+            <input type="text" class="input" name="state" placeholder="State" required id="State" autocomplete="off">
+            <input type="text" class="input" name="pincode" placeholder="Pincode" required id="Pincode" autocomplete="off">
+            <label for="isDefault">Set as Default Address</label>
+            <input type="checkbox" name="is_default" id="isDefault">
+
+            <button class="form-btn" type="submit">Sign Up</button>
+        </form>
+        <p id="errorDisplay"></p>
+        <p class="sign-up-label">
+            Already have an account?<span class="sign-up-link"><a href="login.html"> Log in</a></span>
+        </p>
+    </div>
+
+    <!-- Sign-up Confirmation Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <p id="modalText"></p>
+        </div>
+    </div>
+
+    <script src="./js/signup.js"></script>
+    
+<script type="module" src="./js/routes.js"></script>
+</body>
+</html>

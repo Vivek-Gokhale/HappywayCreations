@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Jost:wght@300;400;500;700&family=Poppins:wght@200;300;400;600&family=Quicksand:wght@300;400;500;600&family=Urbanist:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/auth.js" defer></script>
+    <title>Product Portfolio</title>
+  </head>
+  <body>
+    <!-- ========== Start Navbar ========== -->
+    <!-- <script type="module" src="main.js"></script> -->
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <div class="head_txt">
+            <!-- <p>Free shipping, 30-day return or refund guarantee.</p> -->
+          </div>
+          <div class="sing_in_up">
+            
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img
+            src="./images/logo.png"
+              alt="sitename eCommerce logo"
+              class="logo"
+              width="10%"
+              height="auto"
+            />
+          </a>
+        </div>
+        <nav class="navbar">
+
+
+          <ul>
+            <li class="nav-item">
+              <a  class="nav-link" id="indexLink" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="productsLink" href="#">products</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="eventsLink" href="#">Events</a>
+            </li>
+            <li class="nav-item">
+                <a  class="nav-link" id="aboutLink" href="about.html">about</a>
+              </li>
+           
+            <li class="nav-item">
+              <a  class="nav-link" id="contactLink" href="#">contact</a>
+            </li>
+
+            
+           
+           
+          </ul>
+        </nav>
+        <button class="hamburger-menu" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="header-buttons">
+          <!-- Buttons will be dynamically inserted by auth.js -->
+        </div>
+      </div>
+    </header>
+    <!-- ========== End Navbar ========== -->
+    <!-- ========== Start About Section ========== -->
+     <div style="padding : 0 32px">
+      <section class="section-contact">
+        <div class="container" style="margin-left: 14px;">
+          <h2 class="section-common--heading">Contact us</h2>
+          <p class="section-common--subheading">
+            Get in touch with us. We are always here to help you.
+          </p>
+        </div>
+  
+        <div class="grid grid-two--cols">
+          <div class="col-sm">
+            <div id="inputControl">
+              <form action="https://formsubmit.co/vivekgokhale23@gmail.com" method="POST" style="font-size: larger;">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="username">Name</label>
+                        <input style="font-size: larger;" type="text" class="form-control" name="username" id="username"
+                            placeholder="your name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email">Email</label>
+                        <input style="font-size: larger;" type="email" class="form-control" name="email" id="email"
+                            placeholder="email address" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="subject">Subject</label>
+                        <input style="font-size: larger;" type="text" class="form-control" name="subject" id="subject"
+                            placeholder="Enter Subject here..." required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="query">Message</label>
+                    <textarea style="font-size: larger;" class="form-control" id="query" rows="5" name="user_query"
+                        placeholder="Enter your Message here..."></textarea>
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="contact-button">
+                        Send
+                    </button>
+                </div>
+                <input type="hidden" name="_autoresponse"
+                    value="thank you for visiting my our site. we have received your query and we will try to solve that and contact you as soon as possible">
+                <input type="hidden" name="_next" value="http://localhost:5173/thankyou.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" id="hiddenSubject" name="_subject" value="User Query">
+                <input type="hidden" name="_template" value="table">
+            </form>
+  
+            </div>
+        </div>
+          <div class="contact-map">
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.7484252821!2d72.41492625670197!3d23.020474103675674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1693750406200!5m2!1sen!2sin"
+              width="100%"
+              height="auto"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+     </div>
+     <footer class="section-footer">
+      <div class="footer-container container">
+        <div class="content_1">
+          <img src="./images/logo.png" alt="logo" />
+          <p>
+            Welcome to sitename EcomStore, your ultimate shopping destination.
+          </p>
+          <div class="feedback-container">
+            <p>DID YOU FIND INFORMATION ON THIS SITE USEFUL?</p>
+            <button style="outline: none;" class="feedback-button like" id="likeButton">
+              <i class="fa-solid fa-thumbs-up fa-xl"></i>
+            </button>
+            <button style="outline: none;" class="feedback-button dislike" id="dislikeButton">
+              <i class="fa-solid fa-thumbs-down fa-xl"></i>
+            </button>
+        </div>
+        </div>
+        
+        <div class="content_2">
+          <h4>SHOPPING</h4>
+          <a href="products.html?type=Food">Foods</a>
+          <a href="products.html?type=Electronics">Electronics</a>
+          <a href="products.html?type=Jewellery">Jewellery</a>
+        </div>
+        <div class="content_3">
+          <h4>INFORMATION</h4>
+          <a href="./about.html">About Us</a>
+          <a href="./contact.html">Contact Us</a>
+          <a href="./orders.html">Track Your Orders</a>
+        </div>
+        <div class="content_4">
+          <div class="touch-container">
+              <h4>GET IN TOUCH</h4>
+              <div class="touch-info">
+                  <p>Prita Designs Pvt Ltd,</p>
+                  <p>Vaishnavi Properties, #30/1, Silicon Terraces,</p>
+                  <p>2nd and 3rd Floor, Adugodi, Hosur Main Road, Koramangala, Bengaluru – 560095</p>
+                  <p>For queries and feedback, write to us at:</p>
+                  <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=support@sitename.com" target="_blank">Email : support@sitename.com</a></p>
+                  <p>Phone: 08069894292</p>
+              </div>
+              <h4 style="color: #fff;" >Subscribe to Our Newsletter</h4>
+              <p>Be the first to know about new arrivals, sales & promos!</p>
+              <div class="f-mail" style="display: flex;">
+                  <input type="email" class="emailInput" placeholder="Your Email" required/>
+                  <button style="background-color:darkred; border: 10px solid darkred;  outline: none; height: 52px; width: 15rem; font-size: 16px; color: white;" class="subscribe">Subscribe</button>
+              </div>
+              <div style="display: flex; align-items: center;">
+                <a href="https://www.facebook.com/login" target="_blank">
+                    <button id="facebook" class="socialMedia" style="outline: none; margin-right: 10px;">
+                        <i style="color: #fff;" class="fa-brands fa-facebook"></i>
+                    </button>
+                </a>
+                <a href="https://www.instagram.com/accounts/login/" target="_blank">
+                    <button id="instagram" class="socialMedia" style="outline: none;">
+                        <i style="color: #fff;" class="fa-brands fa-instagram"></i>
+                    </button>
+              </a>
+            </div>
+              <hr />
+              
+          </div>
+      </div>
+  
+      <!-- Modal -->
+      <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="feedbackModalLabel">Feedback</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="userEmail" style="color: black;"></label>
+                            <input type="email" class="form-control" id="userEmail" placeholder="Enter your email" required style="font-size: 14px;">
+                        </div>
+                        <div class="form-group">
+                            <label for="userMessage" style="color: black;">WHAT CAN WE DO BETTER?</label>
+                            <textarea class="form-control" id="userMessage" rows="3" placeholder="Enter your feedback here" required style="font-size: 14px;"></textarea>
+                        </div>
+                        <button type="submit" class="add-to-cart-button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+          
+      </div>
+      <div class="f-design">
+        <div class="f-design-txt">
+          <p>Copyright © 2024 Sitename, All Rights Reserved</p>
+        </div>
+        
+      </div>
+    </footer>
+   
+    <!-- Include the footer JavaScript file -->
+
+    <!--* ========== End Footer Section ========== -->
+
+    <!-- ========== End About Section ========== -->
+
+    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/loginPrompt.js"></script>
+    <script type="module" src="./js/buttonSetup.js"></script>
+    <script type="module" src="./js/subscribeFire.js"></script>
+    <script type="module" src="./js/stickHeader.js"></script>
+    <script type="module" src="./js/siteFeedback.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./js/menu.js"></script>
+    
+<script type="module" src="./js/routes.js"></script>
+    <!-- Chatbot Button -->
+<!-- Chatbot Button -->
+<div class="chat-button" id="chatButton">
+  <span>💬</span>
+</div>
+
+
+<!-- Chatbot Window -->
+<div class="chat-container" id="chatContainer">
+  <div class="chat-header">
+      <span>Happyway Creations' Chatbot</span>
+      <button class="back-button" id="backButton"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+        <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg></button>
+  </div>
+  <div class="chatbox" id="chatbox">
+      <div class="chat-message bot">Hello! How can I assist you today?</div>
+  </div>
+  <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your message..." />
+  </div>
+</div>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+  * {
+      font-family: 'Poppins', sans-serif;
+  }
+
+
+  .chat-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #94c383;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      font-size: 30px;
+      transition: transform 0.3s ease-in-out;
+  }
+
+
+  .chat-container {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 400px;
+      height: 550px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      display: none;
+  }
+
+
+  .chat-header {
+      background-color: #94c383;
+      color: white;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+
+  .chat-header .back-button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+  }
+
+
+  .chatbox {
+      flex-grow: 1;
+      padding: 15px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+  }
+
+
+  .chat-message {
+      max-width: 75%;
+      padding: 12px 18px;
+      border-radius: 20px;
+      margin: 8px 0;
+      line-height: 1.5;
+      font-size: 14px;
+      word-wrap: break-word;
+  }
+
+
+  .chat-message.user {
+      background-color: #94c383;
+      color: white;
+      align-self: flex-end;
+  }
+
+
+  .chat-message.bot {
+      background-color: #f1f1f1;
+      color: black;
+      align-self: flex-start;
+  }
+
+
+  .chat-input {
+      padding: 10px;
+      border-top: 2px solid #e0e0e0;
+      display: flex;
+      align-items: center;
+      background: #fff;
+  }
+
+
+  .chat-input input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      font-size: 14px;
+  }
+
+
+  .typing-indicator {
+      display: flex;
+      align-items: center;
+      font-style: italic;
+      color: #888;
+      margin: 5px 0 5px 15px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+  }
+
+
+  .typing-dots span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #888;
+      border-radius: 50%;
+      margin: 0 3px;
+      opacity: 0.4;
+      animation: blink 1.5s infinite;
+  }
+
+
+  .typing-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+  }
+
+
+  .typing-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+  }
+
+
+  @keyframes blink {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+  }
+  </style>
+
+
+<script>
+  const chatButton = document.getElementById("chatButton");
+  const chatContainer = document.getElementById("chatContainer");
+  const backButton = document.getElementById("backButton");
+  const userInput = document.getElementById("userInput");
+  const chatbox = document.getElementById("chatbox");
+
+
+  const faq = [
+    { keywords: ["happywaycreations", "about"], response: "HappyWayCreations is a complete eCommerce platform offering a seamless shopping experience, from browsing products to making secure payments." },
+    { keywords: ["account", "signup", "register", "create"], response: "You can create an account by clicking on the 'Sign Up' button and filling in your details. If you already have an account, click 'Log In'." },
+    { keywords: ["filter", "sort", "category"], response: "You can filter products by category, price range, brand, and more using our easy-to-use filtering system on the products page." },
+    { keywords: ["categories", "products", "types"], response: "We offer multiple product categories, including fashion, electronics, home decor, and more. Browse the 'Categories' section for details." },
+    { keywords: ["coupon", "discount", "promo"], response: "You can apply coupons during checkout by entering your promo code in the 'Apply Coupon' field." },
+    { keywords: ["payment", "pay", "methods"], response: "We accept multiple payment options, including credit/debit cards, UPI, net banking, and cash on delivery." },
+    { keywords: ["secure", "safe", "security"], response: "Yes! We use secure encryption to protect your payment details and ensure a safe transaction." },
+    { keywords: ["track", "order", "status"], response: "You can track your order by logging into your account and navigating to the 'My Orders' section." },
+    { keywords: ["newsletter", "subscribe", "offers"], response: "Yes! Subscribe to our newsletter to stay updated on new arrivals, exclusive discounts, and special offers." },
+    { keywords: ["about us", "company", "who"], response: "Visit our 'About Us' page to learn more about HappyWayCreations and our mission." },
+    { keywords: ["contact", "support", "help"], response: "You can reach our support team through the 'Contact Us' page or email us at support@happywaycreations.com." },
+    { keywords: ["return", "exchange", "refund"], response: "Yes! We offer easy returns and exchanges. Check our 'Refund & Return Policy' page for details." },
+    { keywords: ["jewellery", "bracelets", "bangles", "earrings", "pendants"], response: "We offer a variety of jewellery including bracelets, bangles, earrings, and pendants." },
+    { keywords: ["swarovski", "kalyaan jewellers"], response: "Yes! We have jewellery from Swarovski and Kalyaan Jewellers." },
+    { keywords: ["food", "snacks", "high-fiber biscuits"], response: "We offer a wide range of food products, including healthy snacks like high-fiber biscuits." },
+    { keywords: ["electronics", "smartwatches", "wireless headphones"], response: "We offer a range of electronics including smartwatches, wireless headphones, and more." },
+    { keywords: ["shipping", "delivery", "charges"], response: "Shipping charges vary based on location. Visit our 'Shipping Policy' for details." },
+    { keywords: ["order cancellation", "cancel order"], response: "You can cancel an order before it is shipped from the 'My Orders' section in your account." },
+    { keywords: ["emi", "payment options"], response: "Yes, we offer EMI options for expensive items. Choose EMI during checkout." },
+    { keywords: ["return policy", "refund request"], response: "You can request a refund through our 'Returns & Refund Policy' page." },
+    { keywords: ["location", "store near me", "nearby stores"], response: "We operate online, but you can check our 'Store Locator' page for any nearby physical stores." },
+    { keywords: ["country", "available in my country", "service area"], response: "We currently ship to select countries. Please enter your address at checkout to check availability." },
+    { keywords: ["track location", "current location", "where am I"], response: "For personalized recommendations, allow location access in your browser settings." },
+    { keywords: ["store timings", "working hours", "when open"], response: "Our online store operates 24/7, while physical store timings vary by location." },
+    { keywords: ["customer service hours", "support timings"], response: "Our customer service is available from 9 AM to 9 PM IST, Monday to Saturday." },
+   
+    // Additional questions based on website navigation
+    { keywords: ["find", "product", "search"], response: "Use the search bar at the top of the website to find products by name, category, or brand." },
+    { keywords: ["jewellery section", "where", "bangles"], response: "You can find bangles under the 'Jewellery' section on our website." },
+    { keywords: ["swarovski necklace", "where to find"], response: "Visit the 'Jewellery' section and browse the 'Swarovski' category for necklaces." },
+    { keywords: ["snacks", "kurkure", "chips"], response: "You can find Kurkure potato chips under the 'Food' category." },
+    { keywords: ["mayonnaise", "food", "hellmann"], response: "Find 'Veg Mayonnaise' in the 'Food' section under the 'Hellmann' brand." },
+    { keywords: ["smartphones", "electronics", "mobile"], response: "Check the 'Electronics' category for the latest smartphones." },
+    { keywords: ["wireless headphones", "where", "electronics"], response: "Find 'Wireless Headphones' under the 'Electronics' category, listed under 'SoundBeats'." },
+    { keywords: ["swarovski earrings", "where to buy"], response: "Earrings from Swarovski are available in the 'Jewellery' section." },
+    { keywords: ["cornflakes", "kellogg's", "breakfast"], response: "Look for 'Kellogg's Cornflakes' under the 'Food' category, listed under 'Nestle'." },
+    { keywords: ["shopping cart", "where", "cart"], response: "Click on the cart icon at the top-right of the page to view your shopping cart." },
+    { keywords: ["checkout", "buy now", "payment"], response: "After adding items to your cart, click 'Proceed to Checkout' to complete your purchase." }
+    [
+  {
+    "keywords": ["luxurious bracelet", "white crystals", "Meteora Bangle"],
+    "response": "Yes! You can check out the Meteora Bangle from Kalyaan. It features a sleek, rhodium-plated design adorned with brilliant white crystals. To find it on our website, go to the Jewelry section under Accessories, or search for 'Meteora Bangle' in the search bar."
+  },
+  {
+    "keywords": ["premium necklace", "infinity design", "Infinity Necklace"],
+    "response": "You might love the Swarovski Infinity Necklace! It beautifully intertwines the infinity symbol with a delicate design. To find it, head to Jewelry > Necklaces or search for 'Infinity Necklace' on our website."
+  },
+  {
+    "keywords": ["hoop earrings", "round-cut crystals", "Attract Trilogy Earrings"],
+    "response": "Yes! We have the Attract Trilogy Hoop Earrings from Swarovski. They feature a stunning round-cut design with radiant white stones. To find them, visit Jewelry > Earrings or search for 'Attract Trilogy Earrings' on our website."
+  },
+  {
+    "keywords": ["smartwatch", "fitness tracking", "water-resistant"],
+    "response": "We have a Smartwatch from FitTech with a 1.3-inch AMOLED display, fitness tracking, and a water-resistant design. You can find it under Electronics > Watches or search 'Smartwatch' in the search bar."
+  },
+  {
+    "keywords": ["Dell laptop", "i5 processor", "SSD storage"],
+    "response": "We have a Dell Laptop with a quad-core i5 processor, 8GB RAM, 256GB SSD, and a 14-inch FHD display. You can find it under Electronics > Laptops or search 'Dell Laptop' on our website."
+  },
+  {
+    "keywords": ["wireless headphones", "over-ear design", "long battery life"],
+    "response": "Yes! The SoundBeats Wireless Headphones come with an over-ear design and 20 hours of battery life. Check them out under Electronics > Audio or search 'Wireless Headphones' on our website."
+  },
+  {
+    "keywords": ["Hellmann's Veg Mayonnaise", "sauces", "spreads"],
+    "response": "You can find Hellmann's Veg Mayonnaise under Groceries > Sauces & Spreads. Just search for 'Veg Mayonnaise' in the search bar."
+  },
+  {
+    "keywords": ["Kellogg's Cornflakes", "breakfast cereals", "Cornflakes"],
+    "response": "You can find Kellogg's Corn Flakes in the Breakfast Cereals section under Groceries. You can also search 'Cornflakes' on our website."
+  },
+  {
+    "keywords": ["Lay's Magic Masala", "potato chips", "snacks"],
+    "response": "Yes! You can find Lay's India's Magic Masala Potato Chips (40g) under Snacks > Chips & Crisps, or just search 'Potato Chips' in the search bar."
+  }
+]   
+];
+  chatButton.addEventListener("click", () => {
+      chatContainer.style.display = "flex";
+      chatButton.style.display = "none";
+  });
+
+
+  backButton.addEventListener("click", () => {
+      chatContainer.style.display = "none";
+      chatButton.style.display = "flex";
+  });
+
+
+  userInput.addEventListener("keypress", (e) => {
+      if (e.key === 'Enter') {
+          sendMessage();
+      }
+  });
+
+
+  function sendMessage() {
+      const message = userInput.value.trim().toLowerCase();
+      if (message) {
+          appendMessage('user', message);
+          userInput.value = '';
+          showTypingIndicator();
+          setTimeout(() => {
+              respondToMessage(message);
+              hideTypingIndicator();
+          }, getRandomTypingDelay());
+      }
+  }
+
+
+  function appendMessage(sender, message) {
+      const messageDiv = document.createElement("div");
+      messageDiv.classList.add("chat-message", sender);
+      messageDiv.innerText = message;
+      chatbox.appendChild(messageDiv);
+      chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+
+  function respondToMessage(message) {
+      let response = "I'm not sure about that. Please ask something related to HappyWayCreations.";
+
+
+      for (const entry of faq) {
+          if (entry.keywords.some(keyword => message.includes(keyword))) {
+              response = entry.response;
+              break;
+          }
+      }
+
+
+      setTimeout(() => {
+          appendMessage('bot', response);
+      }, 500);
+  }
+
+
+  function showTypingIndicator() {
+      const typingDiv = document.createElement("div");
+      typingDiv.classList.add("typing-indicator");
+      typingDiv.innerHTML = "Bot is typing";
+      chatbox.appendChild(typingDiv);
+      typingDiv.style.opacity = "1";
+  }
+
+
+  function hideTypingIndicator() {
+      const typingDiv = document.querySelector(".typing-indicator");
+      if (typingDiv) {
+          typingDiv.style.opacity = "0";
+          setTimeout(() => typingDiv.remove(), 300);
+      }
+  }
+
+
+  function getRandomTypingDelay() {
+      return Math.floor(Math.random() * (3000 - 1500 + 1)) + 1500; // 1.5s to 3s delay
+  }
+</script>
+
+<script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+<script type="module" src="./js/auth.js"></script>
+
+  </body>
+</html>

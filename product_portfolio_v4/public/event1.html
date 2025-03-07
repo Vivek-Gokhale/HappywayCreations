@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 1 - Thapa Store</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="./js/auth.js" defer></script>
+
+    <style>
+      .card {
+  border-radius: 25px;
+  background-color: #FFF;
+}
+.image-content,
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.image-content {
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #9aedb6;
+  border-radius: 25px 25px 0 25px;
+}
+.overlay::before,
+.overlay::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: #9aedb6;
+}
+.overlay::after {
+  border-radius: 0 25px 0 0;
+  background-color: #FFF;
+}
+.card-image {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #FFF;
+  padding: 3px;
+}
+.card-image .card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #9aedb6;
+}
+.name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1e1f23;
+}
+.description {
+  font-size: 14px;
+  color: #1e1f23;
+  text-align: center;
+}
+.button {
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #9aedb6;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover {
+  background: #9aedb6;
+}
+
+@media screen and (max-width: 768px) {
+ 
+  .container {
+    width: 100% !important;
+    /* padding: 8rem 2rem; */
+    
+  }
+  
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  
+}
+
+    </style>
+    
+
+</head>
+<body>
+
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <div class="head_txt">
+          </div>
+          <div class="sing_in_up">
+          </div>
+        </div>
+      </section>
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img src="./images/logo.png"
+              alt="sitename eCommerce logo"
+              class="logo"
+              width="10%"
+              height="auto"
+            />
+          </a>
+        </div>
+        <nav class="navbar">
+
+
+          <ul>
+            <li class="nav-item">
+              <a  class="nav-link" id="indexLink" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="productsLink" href="#">products</a>
+            </li>
+            <li class="nav-item">
+              <a  class="nav-link" id="eventsLink" href="#">Events</a>
+            </li>
+            <li class="nav-item">
+                <a  class="nav-link" id="aboutLink" href="about.html">about</a>
+              </li>
+           
+            <li class="nav-item">
+              <a  class="nav-link" id="contactLink" href="#">contact</a>
+            </li>
+
+            
+           
+           
+          </ul>
+        </nav>
+        <button class="hamburger-menu" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="header-buttons">
+          <!-- Buttons will be dynamically inserted by auth.js -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Event Section on Home Page -->
+    <section class="featured-event">
+        <div class="container">
+            <h1>Upcoming Event: New Year Sale</h1>
+            <p>Don't miss out on our amazing offers!</p>
+            
+            <div class="event-image">
+                <img src="./images/food.png" alt="Event 1 Image" width="100%">
+            </div>
+
+            <h2>Exclusive Discounts</h2>
+            <ul>
+                <li>10% Off on all products</li>
+                <li>Special discounts on jewelry</li>
+                <li>Extra 15% Off for premium customers</li>
+            </ul>
+
+            <a href="event1.html" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Thapa Store | All rights reserved.</p>
+    </footer>
+
+    <script type="module" src="./js/routes.js"></script>
+</body>
+</html>

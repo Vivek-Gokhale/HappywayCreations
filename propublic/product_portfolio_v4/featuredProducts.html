@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Slides will be dynamically loaded here -->
+    </div>
+    <div class="swiper-button-next" style="color:#13491B;"></div>
+    <div class="swiper-button-prev" style="color:#13491B;"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- JavaScript to Load and Initialize Swiper -->
+  <script type="module">
+    document.addEventListener("DOMContentLoaded", function() {
+      const loadFeaturedProducts = async () => {
+        let carousel = document.querySelector('.swiper-wrapper');
+        try {
+          const response = await fetch('http://localhost:3000/featured-products');
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const products = await response.json();
+          
+          if (!products || products.length === 0) {
+            return false;
+          }
+
+          for (let i = 0; i < Math.min(5, products.length); i++) {
+            const { product_id, product_image } = products[i];
+            
+            // Create carousel item elements
+            let carouselItem = document.createElement('a');
+            carouselItem.className = 'swiper-slide';
+            carouselItem.href = `singleProductPage.html?id=${product_id}`;
+
+            let img = document.createElement('img');
+            img.src = product_image[1]|| product_image[0]; // Assuming product_image contains an array of image URLs
+            carouselItem.appendChild(img);
+            carousel.appendChild(carouselItem);
+
+            // Add event listener to handle click
+            carouselItem.addEventListener('click', function(event) {
+              event.preventDefault();
+              window.top.location.href = this.href; // Navigate and close the parent page
+            });
+          }
+
+          // Initialize Swiper after the slides are added
+          new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+              delay: 2000,
+              disableOnInteraction: false,
+            },
+            breakpoints: {
+              640: { // when window width is >= 640px
+                slidesPerView: 1,
+                spaceBetween: 0,
+              },
+              768: { // when window width is >= 768px
+                slidesPerView: 2,
+                spaceBetween: 0,
+              },
+              1024: { // when window width is >= 1024px
+                slidesPerView: 3,
+                spaceBetween: 0,
+              }
+            }
+          });
+        } catch (error) {
+          console.error('Failed to load featured products:', error);
+        }
+      };
+
+      loadFeaturedProducts();
+    });
+  </script>
+</body>
+
+</html>
