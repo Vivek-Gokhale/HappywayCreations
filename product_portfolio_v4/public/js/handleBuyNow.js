@@ -2,7 +2,7 @@ export const handleBuyNow = async (userEmail, productId, productQty, amount) => 
     console.log(userEmail + " : " + productId + " : " + productQty + " : " + amount);
   
     try {
-      const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/handle-buy-now', {
+      const response = await fetch('https://www.happywaycreations.com/handle-buy-now', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

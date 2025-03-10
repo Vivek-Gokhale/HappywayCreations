@@ -16,7 +16,7 @@ export const buyNow = async (event, id, qty, card) => {
 
     try {
         // Fetch product details from the server using the new endpoint
-        const productResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/buy-now', {
+        const productResponse = await fetch('https://www.happywaycreations.com/buy-now', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ export const buyNow = async (event, id, qty, card) => {
         console.log("final amount " + amount);
 
         // Create order
-        const orderResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/createOrder', {
+        const orderResponse = await fetch('https://www.happywaycreations.com/createOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

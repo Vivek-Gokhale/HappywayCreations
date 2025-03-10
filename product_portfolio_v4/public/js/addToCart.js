@@ -57,7 +57,7 @@ export const addToCart = async (evt, id, userEmail) => {
     // Make API call to add product to cart
     
     try {
-        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/add-to-cart', {
+        const response = await fetch('https://www.happywaycreations.com/add-to-cart', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

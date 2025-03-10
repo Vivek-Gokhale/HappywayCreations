@@ -53,13 +53,13 @@ app.use(session({
 
 // Database Connection
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
-    password: '',
+    password: 'HwC1234$',
     database: 'product_portfolio_db'
 });
 
-const basePath = 'https://happywaycreations.147.93.106.209.nip.io:3000/product-uploads/';
+const basePath = 'https://www.happywaycreations.com:3000/product-uploads/';
 
 db.connect(err => {
     if (err) {
@@ -1957,7 +1957,7 @@ app.post('/checkProductReview', async (req, res) => {
 
 app.get('/getProductReview/:productId', (req, res) => {
   const { productId } = req.params;
-  const basePath = 'http://localhost:3000/review_images/';
+  const basePath = 'https://www.happywaycreations.com:3000/review_images/';
 
   const query = `
       SELECT pr.*, ur.first_name, ur.last_name 

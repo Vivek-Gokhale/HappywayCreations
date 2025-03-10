@@ -65,7 +65,7 @@ fetchWishProducts();
         let userEmail = sessionStorage.getItem('userEmail');
         
         // Make API call to insert coupon code into database
-        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/insert-coupon', {
+        const response = await fetch('https://www.happywaycreations.com/insert-coupon', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -171,7 +171,7 @@ fetchWishProducts();
   
     try {
       // Fetch all coupons
-      const couponsResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/get-coupons', {
+      const couponsResponse = await fetch('https://www.happywaycreations.com/get-coupons', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -181,7 +181,7 @@ fetchWishProducts();
       const coupons = couponsData.coupons;
   
       // Fetch applied coupons for the user
-      const appliedCouponsResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/get-applied-coupons-temp', {
+      const appliedCouponsResponse = await fetch('https://www.happywaycreations.com/get-applied-coupons-temp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -261,7 +261,7 @@ if (isLoggedIn()) {
         let productIds = cartProducts.map(product => product.product_id);
 
         // Fetch product details for all products in cart
-        const productResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/get-cart-buy', {
+        const productResponse = await fetch('https://www.happywaycreations.com/get-cart-buy', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -296,7 +296,7 @@ if (isLoggedIn()) {
         });
 
         let userEmail = sessionStorage.getItem('userEmail');
-        const appliedCouponsResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/get-applied-coupons-discount', {
+        const appliedCouponsResponse = await fetch('https://www.happywaycreations.com/get-applied-coupons-discount', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -317,7 +317,7 @@ if (isLoggedIn()) {
         console.log("Total Amount in Paise:", amountInPaise);
 
         // Create order
-        const orderResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/createOrder', {
+        const orderResponse = await fetch('https://www.happywaycreations.com/createOrder', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -347,7 +347,7 @@ if (isLoggedIn()) {
     handler: async function (response) {
         try {
             // Validate payment before proceeding
-            const validationResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/validate-payment', {
+            const validationResponse = await fetch('https://www.happywaycreations.com/validate-payment', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

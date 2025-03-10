@@ -2,7 +2,7 @@ export const handleOrder = async (userEmail, amount, cartProducts) => {
     // console.log(userEmail + " : " + amount +;
     
     try {
-      const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/handle-order', {
+      const response = await fetch('https://www.happywaycreations.com/handle-order', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ export const handleOrder = async (userEmail, amount, cartProducts) => {
 
   const deduceQtyFromDB = async (cartProducts) => {
     try {
-      const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/update-product-quantity', {
+      const response = await fetch('https://www.happywaycreations.com/update-product-quantity', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

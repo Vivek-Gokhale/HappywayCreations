@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/signup', {
+            const response = await fetch('https://www.happywaycreations.com/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

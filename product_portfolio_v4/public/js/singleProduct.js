@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const fetchProductById = async (productId) => {
     try {
-        const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/products/${productId}`);
+        const response = await fetch(`https://www.happywaycreations.com/products/${productId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -162,7 +162,7 @@ export const displayProductDetails = async (productId) => {
 
 const fetchProductReviews = async (productId) => {
     try {
-        const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/getProductReview/${productId}`);
+        const response = await fetch(`https://www.happywaycreations.com/getProductReview/${productId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -176,7 +176,7 @@ const fetchProductReviews = async (productId) => {
 const fetchAverageRating = async (productId) => {
     // console.log("my id " + productId);
     try {
-        const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/getProductRating/${productId}`);
+        const response = await fetch(`https://www.happywaycreations.com/getProductRating/${productId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

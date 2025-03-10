@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const fetchProductById = async (productId) => {
     try {
-        const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/products/${productId}`);
+        const response = await fetch(`https://www.happywaycreations.com/products/${productId}`);
         if (!response.ok) throw new Error('Network response was not ok');
         return await response.json();
     } catch (error) {
@@ -119,7 +119,7 @@ document.getElementById('reviewForm').addEventListener('submit', async (evt) => 
     });
 
     try {
-        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/uploadReview', {
+        const response = await fetch('https://www.happywaycreations.com/uploadReview', {
             method: 'POST',
             body: formData,
         });

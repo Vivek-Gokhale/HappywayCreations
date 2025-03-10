@@ -17,7 +17,7 @@ export const addToWishList = async (evt, id, stock, userEmail) => {
     evt.target.replaceWith(newElement);
 
     try {
-        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/add-to-wishlist', {
+        const response = await fetch('https://www.happywaycreations.com/add-to-wishlist', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

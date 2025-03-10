@@ -2,7 +2,7 @@ let carousel = document.querySelector('.swiper-wrapper');
 
 const loadFeaturedProducts = async () => {
     try {
-        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/featured-products');
+        const response = await fetch('https://www.happywaycreations.com/featured-products');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -20,7 +20,7 @@ const loadFeaturedProducts = async () => {
             let carouselItem = document.createElement('a');
             carouselItem.className = 'swiper-slide';
             carouselItem.href = `singleProductPage.html?id=${product_id}`;
-
+            
             let img = document.createElement('img');
             img.src = product_image[1]; // Assuming product_image contains an array of image URLs
 

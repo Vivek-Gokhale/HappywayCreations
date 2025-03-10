@@ -14,7 +14,7 @@ const productTemplate = document.querySelector("#productTemplate");
 const fetchAverageRating = async (productId) => {
   // console.log("my id " + productId);
   try {
-      const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/getProductRating/${productId}`);
+      const response = await fetch(`https://www.happywaycreations.com/getProductRating/${productId}`);
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
@@ -31,6 +31,7 @@ const createImageElements = (images) => {
   images.forEach((src, index) => {
     const img = document.createElement('img');
     img.classList.add('productImage');
+    console.log(src);
     img.src = src;
     img.alt = `Product Image ${index + 1}`;
     if (index === 0) img.style.opacity = '1'; // Show the first image initially
@@ -63,7 +64,7 @@ const addHoverEffect = (imageContainer) => {
 };
 const fetchProducts = async () => {
   try {
-    const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/productsAll');
+    const response = await fetch('https://www.happywaycreations.com/productsAll');
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -98,7 +99,7 @@ export const showProductContainer = async () => {
       product_discount: discount
     } = curProd;
 
-    
+    console.log();
     const rating = await fetchAverageRating(id) || 0;
     const productClone = document.importNode(productTemplate.content, true);
     const card = productClone.querySelector(".cards");
@@ -199,7 +200,7 @@ export const showProductContainer = async () => {
 
 async function fetchProductsColor(color, cateName) {
   try {
-      const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/productsByColor', {
+      const response = await fetch('https://www.happywaycreations.com/productsByColor', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -346,7 +347,7 @@ export const showProductContainerColor = async (color, cateName) => {
 
 const fetchProductsByCategory = async (cateName) => {
   try {
-      const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/productsCate?category=${cateName}`);
+      const response = await fetch(`https://www.happywaycreations.com/productsCate?category=${cateName}`);
       if (!response.ok) {
           throw new Error('Network response was not ok');
       }
@@ -603,7 +604,7 @@ export const showProductContainerCate = async (cateName) => {
 
 const fetchProductsByCategoryAndPrice = async (category, price) => {
   try {
-    const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/productsByCategoryAndPrice?category=${category}&price=${price}`);
+    const response = await fetch(`https://www.happywaycreations.com/productsByCategoryAndPrice?category=${category}&price=${price}`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }

@@ -16,7 +16,7 @@ export const updateCartProductTotal = async () => {
       const productIds = localCartProducts.map(product => product.product_id);
 
       // Fetch product details
-      const productDetailsResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/get-product-cart-details', {
+      const productDetailsResponse = await fetch('https://www.happywaycreations.com/get-product-cart-details', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ export const updateCartProductTotal = async () => {
       const { products } = await productDetailsResponse.json();
 
       // Fetch applied coupons for the user
-      const appliedCouponsResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/get-applied-coupons', {
+      const appliedCouponsResponse = await fetch('https://www.happywaycreations.com/get-applied-coupons', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ export const updateCartProductTotal = async () => {
       const { couponCodes } = await appliedCouponsResponse.json();
       
       // Fetch coupon details
-      const couponDetailsResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/get-coupons-applied', {
+      const couponDetailsResponse = await fetch('https://www.happywaycreations.com/get-coupons-applied', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

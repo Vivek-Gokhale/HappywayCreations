@@ -5,7 +5,7 @@ import { updateWishValue } from "./updateWishListValue";
 
 export const removeProductFromWish = async (productId, userEmail) => {
     try {
-        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/remove-from-wishlist', {
+        const response = await fetch('https://www.happywaycreations.com/remove-from-wishlist', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ export const handleAddToCartFromWishlist = async (productId) => {
 
     try {
         // First add to cart
-        const cartResponse = await fetch('https://happywaycreations.147.93.106.209.nip.io/add-to-cart', {
+        const cartResponse = await fetch('https://www.happywaycreations.com/add-to-cart', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

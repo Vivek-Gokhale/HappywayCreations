@@ -1,6 +1,6 @@
 export const deduceSingleProdQtyFromDB = async (id, qty) => {
     try {
-      const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/update-single-product-quantity', {
+      const response = await fetch('https://www.happywaycreations.com/update-single-product-quantity', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -5,7 +5,7 @@ export const getWishProductFromLS = async () => {
     }
 
     try {
-        const response = await fetch('https://happywaycreations.147.93.106.209.nip.io/get-wishlist-products', {
+        const response = await fetch('https://www.happywaycreations.com/get-wishlist-products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

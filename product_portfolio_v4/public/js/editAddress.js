@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         
             try {
-                const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/fetch-address?aid=${aid}`);
+                const response = await fetch(`https://www.happywaycreations.com/fetch-address?aid=${aid}`);
                 
                 if (!response.ok) {
                     throw new Error("Failed to fetch address information.");
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 console.log('addressData:', addressData);
         
                 try {
-                    const response = await fetch(`https://happywaycreations.147.93.106.209.nip.io/update-address`, {
+                    const response = await fetch(`https://www.happywaycreations.com/update-address`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json"
